@@ -19,10 +19,10 @@ public class GameBeginBtn : MonoBehaviour {
     void BtnStart_dl(GameObject obj) {
         UILabel zh = GameObject.Find("zh").GetComponent<UILabel>();
         UILabel mm = GameObject.Find("mima").GetComponent<UILabel>();
-     //   string findUserZh = userdata.FindXml("545","545","545");
-    //    if (zh.text != findUserZh) {
-    //        Debug.Log("账号和密码不匹配");
-    //    }
+        bool on_off = userdata.Login(zh.text, mm.text);
+        if (on_off) {
+            userdata.FindIDinfos(StaticGame.UserID);
+        }
     }
     void BtnStart_zc(GameObject obj){
         initZClayer();

@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\public\StaticGame.cs" />
     <Compile Include="Assets\Script\public\UserData.cs" />
     <Compile Include="Assets\Script\public\UserManage.cs" />
     <Compile Include="Assets\Script\ui\GameBeginBtn.cs" />
