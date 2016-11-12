@@ -72,9 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\public\UserData.cs" />
+    <Compile Include="Assets\Script\public\UserManage.cs" />
     <Compile Include="Assets\Script\ui\GameBeginBtn.cs" />
     <Compile Include="Assets\Script\ui\Login_Script.cs" />
-    <Compile Include="Assets\box.cs" />
     <Compile Include="Assets\plug-in\NGUI\Examples\Scripts\InventorySystem\Game\EquipItems.cs" />
     <Compile Include="Assets\plug-in\NGUI\Examples\Scripts\InventorySystem\Game\EquipRandomItem.cs" />
     <Compile Include="Assets\plug-in\NGUI\Examples\Scripts\InventorySystem\Game\UICursor.cs" />
@@ -215,6 +215,7 @@
     <Compile Include="Assets\plug-in\NGUI\Scripts\UI\UIViewport.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Resources\UserData.xml" />
     <None Include="Assets\plug-in\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
     <None Include="Assets\plug-in\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
     <None Include="Assets\plug-in\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />

@@ -1,0 +1,38 @@
+<transforms>
+  <rotation id="1" name="qiaobi" account="qiaobin" password="123">
+    <HP>24151</HP>
+    <MP>156454</MP>
+    <Magic>151515</Magic>
+    <Attack>44545</Attack>
+  </rotation>
+  <rotation id="2" name="qweqwe" account="wqewq" password="789">
+    <HP>24151</HP>
+    <MP>156454</MP>
+    <Magic>151515</Magic>
+    <Attack>44545</Attack>
+  </rotation>
+  <rotation id="3" name="asdasd" account="asd" password="asdas">
+    <HP>24151</HP>
+    <MP>156454</MP>
+    <Magic>151515</Magic>
+    <Attack>44545</Attack>
+  </rotation>
+  <rotation id="4" name="45654" account="fwer" password="45">
+    <HP>24151</HP>
+    <MP>156454</MP>
+    <Magic>151515</Magic>
+    <Attack>44545</Attack>
+  </rotation>
+  <rotation id="5" name="45654" account="45654" password="45654">
+    <HP>24151</HP>
+    <MP>156454</MP>
+    <Magic>151515</Magic>
+    <Attack>44545</Attack>
+  </rotation>
+  <rotation id="6" name="sdf" account="sdfsd" password="sdf">
+    <HP>24151</HP>
+    <MP>156454</MP>
+    <Magic>151515</Magic>
+    <Attack>44545</Attack>
+  </rotation>
+</transforms>

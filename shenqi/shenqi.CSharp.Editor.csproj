@@ -197,6 +197,7 @@
     <Compile Include="Assets\plug-in\NGUI\Scripts\Editor\UIWrapContentEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Resources\UserData.xml" />
     <None Include="Assets\plug-in\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
     <None Include="Assets\plug-in\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
     <None Include="Assets\plug-in\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
