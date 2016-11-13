@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 public static class StaticGame{
-    public static string UserID = "";//当前用户ID;
+    public static  Dictionary<string, string> UserInfo = new Dictionary<string, string>();
 }

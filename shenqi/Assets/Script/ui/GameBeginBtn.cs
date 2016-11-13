@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using usermanage;
 public class GameBeginBtn : MonoBehaviour {
     // Use this for initialization
@@ -19,9 +20,10 @@ public class GameBeginBtn : MonoBehaviour {
     void BtnStart_dl(GameObject obj) {
         UILabel zh = GameObject.Find("zh").GetComponent<UILabel>();
         UILabel mm = GameObject.Find("mima").GetComponent<UILabel>();
-        bool on_off = userdata.Login(zh.text, mm.text);
+        bool on_off = userdata.GetLogin(zh.text, mm.text);
+        ArrayList aaa = new ArrayList();
         if (on_off) {
-            userdata.FindIDinfos(StaticGame.UserID);
+            StaticGame.UserInfo = userdata.Getinfos(zh.text);
         }
     }
     void BtnStart_zc(GameObject obj){
@@ -54,7 +56,7 @@ public class GameBeginBtn : MonoBehaviour {
         UILabel name = GameObject.Find("obj/shurukuang/namobj/name").GetComponent<UILabel>();
         UILabel zh = GameObject.Find("obj/shurukuang/zh").GetComponent<UILabel>();
         UILabel mm = GameObject.Find("obj/shurukuang/mima").GetComponent<UILabel>();
-        string state = userdata.Zhuce(name.text,zh.text,mm.text);
+        string state = userdata.GetZhuce(name.text,zh.text,mm.text);
         switch (state) {
             case "1":
                 GameObject getzclayer = obj.transform.parent.gameObject;

@@ -183,7 +183,6 @@ public  class UserData : MonoBehaviour
                 {
                     if (password == xe.GetAttribute("password"))
                     {
-                        StaticGame.UserID = xe.GetAttribute("id");
                         on_off = true;
                         break;
                     }
@@ -226,7 +225,7 @@ public  class UserData : MonoBehaviour
         return on_off;
     }
 
-    public virtual Dictionary<string, string> FindAllInfo(string id)
+    public virtual Dictionary<string, string> FindAllInfo(string account)
     {
         Dictionary<string, string> Object = new Dictionary<string, string>();
         string filepath = Application.dataPath + @"/Resources/UserData.xml";
@@ -238,8 +237,10 @@ public  class UserData : MonoBehaviour
 
             foreach (XmlElement xe in nodeList)
             {
-                if (xe.GetAttribute("id") == id)
+                if (xe.GetAttribute("account") == account)
                 {
+                    Object.Add("account", xe.GetAttribute("account"));
+                    Object.Add("id", xe.GetAttribute("id"));
                     foreach (XmlElement x1 in xe.ChildNodes)
                     {
                         Object.Add(x1.Name, x1.InnerText);

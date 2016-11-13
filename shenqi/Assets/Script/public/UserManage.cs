@@ -12,7 +12,7 @@ namespace usermanage
           account：账号
           password：密码
         */
-        public string Zhuce(string name, string account, string password)
+        public string GetZhuce(string name, string account, string password)
         {
             string filepath = Application.dataPath + @"/Resources/UserData.xml";
             string on_off = "1";
@@ -59,7 +59,7 @@ namespace usermanage
          account：账号
          password：密码
         */
-        public bool Login(string account, string password)
+        public bool GetLogin(string account, string password)
         {
             bool on_off = login(account, password);
             if (on_off)
@@ -73,29 +73,42 @@ namespace usermanage
         }
 
         /*
-        查找用户所有属性：
-        id：用户ID
+        获取用户所有属性：
+        account：用户账户
         */
-        public Dictionary<string, string> FindIDinfos(string id)
+        public Dictionary<string, string> Getinfos(string account)
         {
             Dictionary<string, string> Object = new Dictionary<string, string>();
-            Object = FindAllInfo(id);
+            Object = FindAllInfo(account);
             Debug.Log("=======================================Begin=====================================");
             foreach (KeyValuePair<string, string> index in Object)
             {
-               Debug.Log("【用户属性】：" + "【"+index.Key+"】:"+ index.Value);
+                Debug.Log("【用户属性】：" + "【" + index.Key + "】:" + index.Value);
             }
             Debug.Log("=======================================End=====================================");
             return Object;
         }
 
         /*
+        获取用户所有属性Key值：
+        */
+        public ArrayList GetinfosKey()
+        {
+            ArrayList list = new ArrayList();
+
+            foreach (KeyValuePair<string, string> index in StaticGame.UserInfo)
+            {
+                list.Add(index.Key);
+            }
+            return list;
+        }
+        /*
         更改及更新用户属性V值：
         id：用户ID
         key：K值属性
         Value：V值属性
         */
-        public void UpdateInfo(string id, string key, int Value)
+        public void SetInfo(string id, string key, int Value)
         {
             bool on_off = UpdateInfoXml(id, key, Value);
             if (on_off) {
