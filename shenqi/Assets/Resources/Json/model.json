@@ -1,0 +1,44 @@
+{
+	"1": {
+		"id": "1",
+		"name": "风灵女",
+		"path": "Role/Model/Archer/Female/",
+		"model": "Archer_Female_01",
+		"info": {
+			"HP": "400",
+			"MP": "250",
+			"Attack": "150",
+			"Magic": "40",
+			"Armor": "30",
+			"MAC": "30"
+		}
+	},
+	"2": {
+		"id": "2",
+		"name": "青正男",
+		"path": "Role/Model/Mage/Male/",
+		"model": "Mage_Male_01",
+			"info": {
+			"HP": "400",
+			"MP": "300",
+			"Attack": "50",
+			"Magic": "50",
+			"Armor": "50",
+			"MAC": "50"
+		}
+	},
+	"3": {
+		"id": "3",
+		"name": "魔君男",
+		"path": "Role/Model/Warrior/Male/",
+		"model": "Warrior_Male_07",
+			"info": {
+			"HP": "500",
+			"MP": "200",
+			"Attack": "50",
+			"Magic": "50",
+			"Armor": "50",
+			"MAC": "50"
+		}
+	}
+}

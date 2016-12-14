@@ -6,16 +6,16 @@ using System.IO;
 using System.Text;
 using System;
 
-public  class UserData : MonoBehaviour
+public  class UserData
 {
-    enum SetUserKey
+    protected enum SetUserKey
     {
         id,
         account,
         password
     }
 
-    enum SetUserInfoKey
+    protected enum SetUserInfoKey
     {
         HP,
         MP,
@@ -25,7 +25,8 @@ public  class UserData : MonoBehaviour
         Sex,
         Armor,
         Name,
-        MAC
+        MAC,
+        Model
     }
     //-------------SetUserKey
     int id = 1;//id
@@ -41,8 +42,9 @@ public  class UserData : MonoBehaviour
     string MAC = "0";//魔法防御
     string Role = "0";//角色  0 为没有角色
     string Sex = "1";// 1为男    2为女
+    string Model = "1";// Model iD    参考Model.json  配置
 
-    public virtual void  createXml(string name, string account, string password)
+    protected void  createXml(string name, string account, string password)
     {
             string filepath = Application.dataPath + @"/Resources/UserData.xml";
             if (!File.Exists(filepath)){
@@ -80,6 +82,9 @@ public  class UserData : MonoBehaviour
                 XmlElement rotation_MAC = xmlDoc.CreateElement(SetUserInfoKey.MAC.ToString());
                 rotation_MAC.InnerText = MAC.ToString();
 
+                XmlElement rotation_Model = xmlDoc.CreateElement(SetUserInfoKey.Model.ToString());
+                rotation_Model.InnerText = Model.ToString();
+
                 elmNew.AppendChild(rotation_Name);
                 elmNew.AppendChild(rotation_HP);
                 elmNew.AppendChild(rotation_MP);
@@ -89,13 +94,14 @@ public  class UserData : MonoBehaviour
                 elmNew.AppendChild(rotation_Sex);
                 elmNew.AppendChild(rotation_Armor);
                 elmNew.AppendChild(rotation_MAC);
+                elmNew.AppendChild(rotation_Model);
                 root.AppendChild(elmNew);
                 xmlDoc.AppendChild(root);
                 xmlDoc.Save(filepath);
                 Debug.Log("createXml OK!");
             }
     }
-    public virtual string AddXml(string name, string account, string password)
+    protected string AddXml(string name, string account, string password)
     {
         string on_off = "1";
         int Maxid = GetMaxID();
@@ -149,6 +155,9 @@ public  class UserData : MonoBehaviour
                 XmlElement rotation_MAC = xmlDoc.CreateElement(SetUserInfoKey.MAC.ToString());
                 rotation_MAC.InnerText = MAC.ToString();
 
+                XmlElement rotation_Model = xmlDoc.CreateElement(SetUserInfoKey.Model.ToString());
+                rotation_Model.InnerText = Model.ToString();
+
                 elmNew.AppendChild(rotation_Name);
                 elmNew.AppendChild(rotation_HP);
                 elmNew.AppendChild(rotation_MP);
@@ -158,6 +167,7 @@ public  class UserData : MonoBehaviour
                 elmNew.AppendChild(rotation_Sex);
                 elmNew.AppendChild(rotation_Armor);
                 elmNew.AppendChild(rotation_MAC);
+                elmNew.AppendChild(rotation_Model);
                 root.AppendChild(elmNew);
                 xmlDoc.AppendChild(root);
                 xmlDoc.Save(filepath);
@@ -167,7 +177,7 @@ public  class UserData : MonoBehaviour
         return on_off;
     }
 
-    public virtual bool login(string account, string password)
+    protected bool login(string account, string password)
     {
         bool on_off = false;
         string filepath = Application.dataPath + @"/Resources/UserData.xml";
@@ -194,7 +204,7 @@ public  class UserData : MonoBehaviour
         return on_off;
     }
 
-    public virtual bool UpdateInfoXml(string id, string key, int Value)
+    protected bool UpdateInfoXml(string id, string key, string Value)
     {
         bool on_off = false;
         string filepath = Application.dataPath + @"/Resources/UserData.xml";
@@ -212,7 +222,7 @@ public  class UserData : MonoBehaviour
                     {
                         if (x1.Name == key)
                         {
-                            x1.InnerText = Value.ToString();
+                            x1.InnerText = Value;
                             on_off = true;
                         }
 
@@ -224,8 +234,7 @@ public  class UserData : MonoBehaviour
         }
         return on_off;
     }
-
-    public virtual Dictionary<string, string> FindAllInfo(string account)
+    protected Dictionary<string, string> FindAllInfo(string account)
     {
         Dictionary<string, string> Object = new Dictionary<string, string>();
         string filepath = Application.dataPath + @"/Resources/UserData.xml";
@@ -251,6 +260,31 @@ public  class UserData : MonoBehaviour
 
         }
         return Object;
+    }
+
+    protected bool FindSame(string Key, string Value)
+    {
+        bool on_off = false;
+        string filepath = Application.dataPath + @"/Resources/UserData.xml";
+        if (File.Exists(filepath))
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(filepath);
+            XmlNodeList nodeList = xmlDoc.SelectSingleNode("transforms").ChildNodes;
+
+            foreach (XmlElement xe in nodeList)
+            {
+                foreach (XmlElement x1 in xe.ChildNodes)
+                {
+                    if (x1.InnerText.ToString() == Value)
+                    {
+                        on_off = true;
+                    }
+                }
+            }
+
+        }
+        return on_off;
     }
 
     int GetMaxID()
