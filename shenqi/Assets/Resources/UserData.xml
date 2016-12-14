@@ -1,6 +1,18 @@
 <transforms>
   <rotation id="1" account="qiaobin" password="123">
-    <Name>乔彬</Name>
+    <Name>俞黄è</Name>
+    <HP>500</HP>
+    <MP>200</MP>
+    <Attack>50</Attack>
+    <Magic>50</Magic>
+    <Role>3</Role>
+    <Sex>1</Sex>
+    <Armor>50</Armor>
+    <MAC>50</MAC>
+    <Model>3</Model>
+  </rotation>
+  <rotation id="1" account="hello" password="word">
+    <Name>word</Name>
     <HP>0</HP>
     <MP>0</MP>
     <Attack>0</Attack>
@@ -9,5 +21,18 @@
     <Sex>1</Sex>
     <Armor>0</Armor>
     <MAC>0</MAC>
+    <Model>0</Model>
+  </rotation>
+  <rotation id="1" account="qqqq" password="123">
+    <Name>sdfsd</Name>
+    <HP>0</HP>
+    <MP>0</MP>
+    <Attack>0</Attack>
+    <Magic>0</Magic>
+    <Role>0</Role>
+    <Sex>1</Sex>
+    <Armor>0</Armor>
+    <MAC>0</MAC>
+    <Model>1</Model>
   </rotation>
 </transforms>

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public static class StaticGame{
-    public static  Dictionary<string, string> UserInfo = new Dictionary<string, string>();
+using LitJson;
+public static class StaticGame
+{
+    public static Dictionary<string, string> GetUserInfo = new Dictionary<string, string>();
 }

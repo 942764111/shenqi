@@ -1,0 +1,28 @@
+{
+	"job": [{
+		"name": "fl",
+		"jobPath": "Archer",
+		"sexPath": "Female",
+		"job": "1",
+		"sex": "0",
+		"model":"1"
+	},
+	{
+		"name": "qz",
+		"jobPath": "Mage",
+		"sexPath": "Male",
+		"job": "2",
+		"sex": "1",
+		"model":"2"
+	},
+	{
+		"name": "mj",
+		"jobPath": "Warrior",
+		"sexPath": "Male",
+		"job": "3",
+		"sex": "1",
+		"model":"3"
+	}],
+	"Action": ["Attack3",
+	"Idle"]
+}
