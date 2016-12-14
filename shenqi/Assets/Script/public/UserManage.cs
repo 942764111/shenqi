@@ -88,7 +88,7 @@ namespace usermanage
             if (on_off)
             {
                 StaticGame.GetUserInfo = Getinfos(account);
-                if (StaticGame.GetUserInfo["Role"] == "1")
+                if (StaticGame.GetUserInfo["Role"] !="0")
                 {
                     Debug.Log(Config.LABEL["DLCG"]);
                     value = "1";

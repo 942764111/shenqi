@@ -124,7 +124,7 @@ public  class UserData
             {
                 XmlNode root = xmlDoc.SelectSingleNode("transforms");
                 XmlElement elmNew = xmlDoc.CreateElement("rotation");
-                elmNew.SetAttribute(SetUserKey.id.ToString(), id.ToString());
+                elmNew.SetAttribute(SetUserKey.id.ToString(), (Maxid+1).ToString());
                 elmNew.SetAttribute(SetUserKey.account.ToString(), account.ToString());
                 elmNew.SetAttribute(SetUserKey.password.ToString(), password.ToString());
 

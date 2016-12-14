@@ -45,6 +45,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\Editor\GUIEasyButtonCallBack.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\Editor\GUIEasyButtonInspector.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\Editor\GUIEasyJoystickCallBack.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\Editor\GUIEasyJoystickInspector.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\Editor\GUIEasyTouchInspector.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\Editor\GUIEasyTouchMenu.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\Editor\GUIEasytouchCallBack.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\Editor\HTGUILayout.cs" />
      <Compile Include="Assets\plug-in\NGUI\Examples\Scripts\InventorySystem\Editor\InvDatabaseInspector.cs" />
      <Compile Include="Assets\plug-in\NGUI\Examples\Scripts\InventorySystem\Editor\InvFindItem.cs" />
      <Compile Include="Assets\plug-in\NGUI\Scripts\Editor\ActiveAnimationEditor.cs" />
@@ -144,6 +152,7 @@
      <None Include="Assets\plug-in\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
      <None Include="Assets\plug-in\NGUI\Examples\Shaders\Unlit - Masked Colored.shader" />
      <None Include="Assets\plug-in\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
+     <None Include="Assets\plug-in\EasyTouch\Readme_first.txt" />
      <None Include="Assets\plug-in\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
      <None Include="Assets\plug-in\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
      <None Include="Assets\plug-in\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
@@ -172,6 +181,9 @@
      <None Include="Assets\plug-in\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
      <None Include="Assets\plug-in\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
      <None Include="Assets\plug-in\NGUI\Examples\Resources\Localization.txt" />
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>H:/shenqi/shenqi/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>H:/Unity5.3.1/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -207,6 +219,9 @@
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>H:/Unity5.3.1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="LitJson">
+ <HintPath>H:/shenqi/shenqi/Assets/plug-in/LitJson.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

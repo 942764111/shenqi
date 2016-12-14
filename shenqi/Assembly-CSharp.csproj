@@ -45,11 +45,63 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\public\Config.cs" />
+     <Compile Include="Assets\Script\public\PublicGame.cs" />
      <Compile Include="Assets\Script\public\StaticGame.cs" />
      <Compile Include="Assets\Script\public\UserData.cs" />
      <Compile Include="Assets\Script\public\UserManage.cs" />
      <Compile Include="Assets\Script\ui\GameBeginBtn.cs" />
-     <Compile Include="Assets\Script\ui\Login_Script.cs" />
+     <Compile Include="Assets\Script\ui\GameModel.cs" />
+     <Compile Include="Assets\Script\ui\GameModel_role.cs" />
+     <Compile Include="Assets\Script\ui\MoveController.cs" />
+     <Compile Include="Assets\Script\ui\SelectRole.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Example for EasyButton\Bullet.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Example for EasyButton\ETPlayer.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Example for EasyButton\ManualControl.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyJoystick\Example-thirdPerson_DirectEventMode\JoystickEvent.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyJoystick\Example_FirstPerson_DirectMode\GUIFirstDirect.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyJoystick\ExitButton.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-2D\Monster.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-FreeCam\FreeCam.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-FreeCam\GuiCam.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-ManipulationImage\GuiPhoto.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-ManipulationImage\Photo.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-MultiLayer\GuiLayer.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-MultiLayer\TouchLayer.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-Multiplefingers\GuiMultiFinger.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-Multiplefingers\ObjectTouch.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-Multiplefingers\ScreenTouch.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-Multiplefingers\SlowRotate.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-OneFinger\DoubleTap.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-OneFinger\Drag.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-OneFinger\GuiOneFinger.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-OneFinger\LongTap.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-OneFinger\Swipe.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-OneFinger\Tap.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-OneFinger\TouchStart.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-StartMenu\GuiStartMenu.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-TwoFinger\GuiTwoFinger.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-TwoFinger\Pinch.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-TwoFinger\Twist.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-TwoFinger\TwoDoubleTap.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-TwoFinger\TwoDrag.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-TwoFinger\TwoLongTap.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-TwoFinger\TwoSwipe.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-TwoFinger\TwoTap.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Examples for EasyTouch\Example-TwoFinger\TwoTouchStart.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\ECamera.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\EasyButton.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\EasyJoystick.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\EasyTouch.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\EasyTouchInput.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\Finger.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\Gesture.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\MonoSingleton.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\MovingJoystick.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\VirtualScreen.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\_C#-Event-Template\C_EasyButtonTemplate.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\_C#-Event-Template\C_EasyJoystickTemplate.cs" />
+     <Compile Include="Assets\plug-in\EasyTouch\Plugins\_C#-Event-Template\C_EasyTouchTemplate.cs" />
      <Compile Include="Assets\plug-in\NGUI\Examples\Scripts\InventorySystem\Game\EquipItems.cs" />
      <Compile Include="Assets\plug-in\NGUI\Examples\Scripts\InventorySystem\Game\EquipRandomItem.cs" />
      <Compile Include="Assets\plug-in\NGUI\Examples\Scripts\InventorySystem\Game\UICursor.cs" />
@@ -202,6 +254,7 @@
      <None Include="Assets\plug-in\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
      <None Include="Assets\plug-in\NGUI\Examples\Shaders\Unlit - Masked Colored.shader" />
      <None Include="Assets\plug-in\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
+     <None Include="Assets\plug-in\EasyTouch\Readme_first.txt" />
      <None Include="Assets\plug-in\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
      <None Include="Assets\plug-in\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
      <None Include="Assets\plug-in\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
@@ -235,6 +288,9 @@
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>H:/Unity5.3.1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="LitJson">
+ <HintPath>H:/shenqi/shenqi/Assets/plug-in/LitJson.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
