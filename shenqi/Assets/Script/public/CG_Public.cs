@@ -49,17 +49,6 @@ namespace CG_Public
             }
             return json;
         }
-        public static void LoadLevel(string SceneName)
-        {
-            //每次转换场景清空UI字典里
-            foreach (KeyValuePair<string, GameObject> index in CG_variable.GetUIID)
-            {
-                CG_variable.GetUIID.Remove(index.Key);
-            }
-            Application.LoadLevel(SceneName);
-
-            Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["QHCJ"], SceneName));
-        }
     }
 
     public static class CG_Windows

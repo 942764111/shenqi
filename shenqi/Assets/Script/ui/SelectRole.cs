@@ -140,7 +140,6 @@ public class SelectRole : MonoBehaviour {
                     userdata.SetInfo(CG_variable.GetUserInfo["id"], userdata.GetKey_Sex, sex);
                     userdata.SetInfo(CG_variable.GetUserInfo["id"], userdata.GetKey_Model, Model);
                     GameModel_role role = new GameModel_role();
-                    CG_Games.LoadLevel("Game");
                 }
                 break;
         }

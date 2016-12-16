@@ -44,7 +44,7 @@ namespace CG_Manage
             }
             return CG_Windows.GetMax(list);
         }
-        //添加UI到字典   
+        //添加UI界面到字典     
         public void AddUI(string ClassName, GameObject obj)
         {
 
