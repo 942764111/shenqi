@@ -14,7 +14,7 @@ public class SelectRole : MonoBehaviour {
     //// Use this for initialization
     void Start()
     {
-        userdata = new User_Manage();
+        userdata = User_Manage.CreateInstance();
 
         json = CG_Config.SELECTROLE;
 

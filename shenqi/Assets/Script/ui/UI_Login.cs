@@ -10,7 +10,7 @@ public class UI_Login : UI_Manage
     }
     protected override void initUI()
     {
-        userdata = new User_Manage();
+        userdata = User_Manage.CreateInstance();
         me =  CloneUI(ClassID);
         AddUI(ClassID, me);
         initZCBtns();
