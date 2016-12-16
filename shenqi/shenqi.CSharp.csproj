@@ -78,16 +78,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\public\Config.cs" />
-    <Compile Include="Assets\Script\public\PublicGame.cs" />
-    <Compile Include="Assets\Script\public\StaticGame.cs" />
-    <Compile Include="Assets\Script\public\UserData.cs" />
-    <Compile Include="Assets\Script\public\UserManage.cs" />
-    <Compile Include="Assets\Script\ui\GameBeginBtn.cs" />
-    <Compile Include="Assets\Script\ui\GameModel.cs" />
-    <Compile Include="Assets\Script\ui\GameModel_role.cs" />
+    <Compile Include="Assets\Script\Managers\Model_Managers.cs" />
+    <Compile Include="Assets\Script\Managers\UI_Manage.cs" />
+    <Compile Include="Assets\Script\Managers\User_Manage.cs" />
+    <Compile Include="Assets\Script\Mode\GameModel_role.cs" />
+    <Compile Include="Assets\Script\private\UserData.cs" />
+    <Compile Include="Assets\Script\public\CG_Config.cs" />
+    <Compile Include="Assets\Script\public\CG_Interface.cs" />
+    <Compile Include="Assets\Script\public\CG_Public.cs" />
+    <Compile Include="Assets\Script\public\CG_variable.cs" />
     <Compile Include="Assets\Script\ui\MoveController.cs" />
     <Compile Include="Assets\Script\ui\SelectRole.cs" />
+    <Compile Include="Assets\Script\ui\UI_GameStart.cs" />
+    <Compile Include="Assets\Script\ui\UI_Login.cs" />
     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Example for EasyButton\Bullet.cs" />
     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Example for EasyButton\ETPlayer.cs" />
     <Compile Include="Assets\plug-in\EasyTouch\Example\C# Example\Example for EasyButton\ManualControl.cs" />

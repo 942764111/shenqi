@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using LitJson;
-using usermanage;
-public class GameModel_role : GameModel
+using CG_Manage;
+using CG_Public;
+public class GameModel_role : Model_Managers
 {
     JsonData ModelData;
     GameObject Model;
-    UserManage userdata;
+    User_Manage userdata;
     void Awake() {
         ModelData = null;
         Model = null;
@@ -14,9 +15,9 @@ public class GameModel_role : GameModel
     }
     void Start()
     {
-        userdata = new UserManage();
+        userdata = new User_Manage();
 
-        LoadData(StaticGame.GetUserInfo["Model"]);
+        LoadData(CG_variable.GetUserInfo["Model"]);
 
         CreateModel((string)ModelData["path"], (string)ModelData["model"]);
 
@@ -24,11 +25,11 @@ public class GameModel_role : GameModel
     }
     public override void LoadData(string ModelID)
     {
-        ModelData = Config.MODEL[ModelID];
-        Debug.Log(Windows.Format((string)Config.LABEL["JZMXSJ"], ModelData.ToJson()));
+        ModelData = CG_Config.MODEL[ModelID];
+        Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["JZMXSJ"], ModelData.ToJson()));
     }
     protected override void CreateModel(string ModelPath, string ModelName) {
-        GameObject Modelres = Games.LoadObject(ModelPath+ ModelName);
+        GameObject Modelres = CG_Games.LoadObject(ModelPath+ ModelName);
         Model = Instantiate(Modelres);
         transform.parent = Model.transform;
         Model.transform.localPosition = new Vector3(0, 0, 0); 
@@ -36,13 +37,13 @@ public class GameModel_role : GameModel
     protected override void AddInfo(JsonData info){
         int index = 0;
         IDictionary infoValue = info as IDictionary;
-        Debug.Log(Windows.Format((string)Config.LABEL["BROKEN"], (string)Config.LABEL["ZRJSSX"]));
-        Debug.Log(Windows.Format((string)Config.LABEL["BROKEN"], (string)Config.LABEL["Begin"]));
+        Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["BROKEN"], (string)CG_Config.LABEL["ZRJSSX"]));
+        Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["BROKEN"], (string)CG_Config.LABEL["Begin"]));
         foreach (var obj in infoValue.Values)
         {
-            userdata.SetInfo(StaticGame.GetUserInfo["id"], userdata.GetModelKeys[index], obj.ToString());
+            userdata.SetInfo(CG_variable.GetUserInfo["id"], userdata.GetModelKeys[index], obj.ToString());
             index++;
         }
-        Debug.Log(Windows.Format((string)Config.LABEL["BROKEN"], (string)Config.LABEL["END"]));
+        Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["BROKEN"], (string)CG_Config.LABEL["END"]));
     }
 }

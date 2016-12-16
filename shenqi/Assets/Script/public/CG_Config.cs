@@ -1,12 +1,35 @@
 ﻿using LitJson;
-public static class Config {
-    //--------------------------------------------json配置
-    public static JsonData LABEL = Games.LoadJson("Label");
-    public static JsonData SELECTROLE = Games.LoadJson("SelectRole");
-    public static JsonData MODEL = Games.LoadJson("model");
-    //--------------------------------------------代码配置
-    //用户名字
-    public static char[] _FIRSTNAME = { '赵', '钱', '孙', '李', '周', '吴', '郑', '王', '陈', '楮', '卫', '蒋', '沈', '秦', '尤',
+namespace CG_Public
+{
+    public static class CG_Config
+    {
+        //--------------------------------------------json配置
+        /* 游戏中所有的文字 */
+        public static JsonData label = CG_Games.LoadJson("Label");
+        public static JsonData LABEL {
+            get{ return label; }
+        }
+        /* 选择角色界面 */
+        private static JsonData selectrole = CG_Games.LoadJson("SelectRole");
+        public static JsonData SELECTROLE
+        {
+            get { return selectrole; }
+        }
+        /* 游戏中所有的模型 */
+        private static JsonData model = CG_Games.LoadJson("model");
+        public static JsonData MODEL
+        {
+            get { return model; }
+        }
+        /* 游戏中所有的加载资源路径配置 */
+        private static JsonData resourcePath = CG_Games.LoadJson("RESPath");
+        public static JsonData RESPath
+        {
+            get { return resourcePath; }
+        }
+        //--------------------------------------------代码配置
+        //用户名字
+        private static char[] _flrsiname = { '赵', '钱', '孙', '李', '周', '吴', '郑', '王', '陈', '楮', '卫', '蒋', '沈', '秦', '尤',
         '许', '何', '吕', '施', '张', '曹', '严', '华', '金', '魏', '陶', '姜', '谢', '邹', '喻', '柏', '水', '窦', '章', '苏',
         '潘', '葛', '奚', '范', '彭', '郎', '韦', '昌', '马', '苗', '凤', '花', '方', '任', '袁', '柳', '酆', '鲍', '史', '唐',
         '廉', '岑', '贺', '倪', '汤', '殷', '罗', '毕', '郝', '邬', '安', '常', '于', '时', '傅', '皮', '卞', '齐', '康', '余',
@@ -48,4 +71,11 @@ public static class Config {
         '﹡', 'ｄ', '〤', 'バ', 'げ', '｜', '˙', 'ρ', 'π', 'ぎ', '﹠', 'ㄜ', 'ψ', 'グ', '┲', '┱', '＾', 'ゲ', '☆', '，', '々', '﹏', 'ó',
         '◆', '♀', '﹎', '§', 'à', 'つ', '↘', 'ㄨ', '〆', 'ぃ', '←', 'ァ', 'あ', 'ら', '━', '╃', '‰', '│', 'ē', '﹖', '：', 'べ', 'ヅ', 'ツ', '┆', 'ㄗ', '＊', '⌒', '┃', '⑨', 'м', 'ロ', '；',
         'へ', '⒎', 'ā', 'Ο', '╅', '╋', '∥', '┳', 'す', 'さ', '╱', 'ヘ', 'Ψ', '↖', '＇', 'Σ', 'キ', 'ス', 'る', '≡', '㈱', '∵', 'ｎ', 'ǎ', 'カ', 'で', '︱', '┓', 'σ', 'ゥ', 'Ｔ', '⒏', 'ニ', 'ｙ', 'ㄆ', '╉', 'ず', '∈', 'セ', '⊥', '㈦', 'ぢ', 'コ', 'Ｉ', '┼', '∠', 'ｃ', 'я', 'к', '⒌', 'Φ' };
+
+        public static char[] _FIRSTNAME
+        {
+            get { return _flrsiname; }
+        }
+    }
+
 }

@@ -47,4 +47,16 @@
     <MAC>0</MAC>
     <Model>1</Model>
   </rotation>
+  <rotation id="3" account="haha" password="haha">
+    <Name>┮α西</Name>
+    <HP>500</HP>
+    <MP>200</MP>
+    <Attack>50</Attack>
+    <Magic>50</Magic>
+    <Role>3</Role>
+    <Sex>1</Sex>
+    <Armor>50</Armor>
+    <MAC>50</MAC>
+    <Model>3</Model>
+  </rotation>
 </transforms>
