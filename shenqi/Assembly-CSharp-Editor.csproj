@@ -208,6 +208,9 @@
  <Reference Include="UnityEditor.TreeEditor">
  <HintPath>H:/Unity5.3.1/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
+ <Reference Include="LitJson">
+ <HintPath>H:/UnityProject/shenqi/shenqi/Assets/plug-in/LitJson.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>H:/Unity5.3.1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -220,9 +223,10 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>H:/Unity5.3.1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="LitJson">
- <HintPath>H:/UnityProject/shenqi/shenqi/Assets/plug-in/LitJson.dll</HintPath>
- </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{1F2F023F-F2EA-63F9-E9DD-F4DCEEC09777}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

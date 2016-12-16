@@ -1,23 +1,22 @@
 ﻿using UnityEngine;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using LitJson;
-using usermanage;
+using CG_Manage;
+using CG_Public;
 public class SelectRole : MonoBehaviour {
     Animation Animobj;
     ArrayList Action = new ArrayList();
     JsonData json;
-    UserManage userdata;
+    User_Manage userdata;
     string job = "";
     string sex = "";
     string Model = "1";
     //// Use this for initialization
     void Start()
     {
-        userdata = new UserManage();
+        userdata = new User_Manage();
 
-        json = Config.SELECTROLE;
+        json = CG_Config.SELECTROLE;
 
         initAddAction();
 
@@ -87,7 +86,7 @@ public class SelectRole : MonoBehaviour {
         btn.isEnabled = false;
         obj.gameObject.SetActive(true);
         Animobj = obj.GetComponent<Animation>();
-        Games.AddClips(Animobj, Action, (string)jobPath, (string)sexPath);
+        CG_Games.AddClips(Animobj, Action, (string)jobPath, (string)sexPath);
         PlayOrder(Action);
     }
     //----------------------------------初始化添加动作
@@ -123,8 +122,8 @@ public class SelectRole : MonoBehaviour {
                  int rand;
                  for (int i = 0; i < 3; i++)
                  {
-                     rand = Windows.Random(0, Config._FIRSTNAME.Length);
-                     Setname += Config._FIRSTNAME[rand].ToString();
+                     rand = CG_Windows.Random(0, CG_Config._FIRSTNAME.Length);
+                     Setname += CG_Config._FIRSTNAME[rand].ToString();
                  }
                  name.text = Setname;
                  
@@ -133,15 +132,15 @@ public class SelectRole : MonoBehaviour {
                 bool same = userdata.isSame(userdata.GetKey_Name, name.text);
                 if (same)
                 {
-                    Debug.LogError(Windows.Format((string)Config.LABEL["JZJSONCG"]));
+                    Debug.LogError(CG_Windows.Format((string)CG_Config.LABEL["JZJSONCG"]));
                 }
                 else {
-                    userdata.SetInfo(StaticGame.GetUserInfo["id"], userdata.GetKey_Name, name.text);
-                    userdata.SetInfo(StaticGame.GetUserInfo["id"], userdata.GetKey_Role, job);
-                    userdata.SetInfo(StaticGame.GetUserInfo["id"], userdata.GetKey_Sex, sex);
-                    userdata.SetInfo(StaticGame.GetUserInfo["id"], userdata.GetKey_Model, Model);
+                    userdata.SetInfo(CG_variable.GetUserInfo["id"], userdata.GetKey_Name, name.text);
+                    userdata.SetInfo(CG_variable.GetUserInfo["id"], userdata.GetKey_Role, job);
+                    userdata.SetInfo(CG_variable.GetUserInfo["id"], userdata.GetKey_Sex, sex);
+                    userdata.SetInfo(CG_variable.GetUserInfo["id"], userdata.GetKey_Model, Model);
                     GameModel_role role = new GameModel_role();
-                    Games.LoadLevel("Game");
+                    CG_Games.LoadLevel("Game");
                 }
                 break;
         }
