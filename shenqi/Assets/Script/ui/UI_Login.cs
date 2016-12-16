@@ -13,33 +13,42 @@ public class UI_Login : UI_Manage
         userdata = new User_Manage();
         me =  CloneUI(ClassID);
         AddUI(ClassID, me);
-        initZCBtns();
+        initBtns();
     }
-    //初始化注册按钮
-    void initZCBtns()
+
+    protected override void initBtns()
     {
-        GameObject btn = GameObject.Find("zhuce/kaishi");
-        if (btn)
+        string[] arr = { "kaishi", "guanbi" };
+        for (int i = 0; i < arr.Length; i++)
         {
-            UIEventListener.Get(btn).onClick = BtnZC_zc;
-        }
-        GameObject remove = GameObject.Find("zhuce/guanbi");
-        if (remove)
-        {
-            UIEventListener.Get(remove).onClick = Remove;
+            GameObject obj = GameObject.Find("zhuce/" + arr[i]);
+            UIEventListener.Get(obj).onClick = Callback;
         }
     }
     protected override void Callback(GameObject Obj)
     {
-
+        switch (Obj.name)
+        {
+            case "kaishi":
+                BtnZC_zc(Obj);
+                break;
+            case "guanbi":
+                Remove(Obj);
+                break;
+            default:
+                break;
+        }
     }
     //注册
     void BtnZC_zc(GameObject A)
     {
-        UILabel name = GameObject.Find("zhuce/shurukuang/namobj/name").GetComponent<UILabel>();
-        UILabel zh = GameObject.Find("zhuce/shurukuang/zh").GetComponent<UILabel>();
-        UILabel mm = GameObject.Find("zhuce/shurukuang/mima").GetComponent<UILabel>();
-        string state = userdata.GetZhuce(name.text, zh.text, mm.text);
+        string state = "";
+        string[] str = { "namobj/name", "zh", "mima" };
+        for (int i = 0; i < str.Length; i++)
+        {
+            UILabel label = GameObject.Find("zhuce/shurukuang/" + str[i]).GetComponent<UILabel>();
+            state = userdata.GetZhuce(label.text, label.text, label.text);
+        }
         switch (state)
         {
             case "1":

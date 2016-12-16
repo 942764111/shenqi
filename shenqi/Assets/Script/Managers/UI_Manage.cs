@@ -6,6 +6,7 @@ namespace CG_Manage
     public abstract class UI_Manage : MonoBehaviour
     {
         protected abstract void initUI();
+        protected abstract void initBtns();
         protected abstract void Callback(GameObject Obj);
         //删除UI
         public void removeUI(GameObject Obj, string ClassName)
@@ -43,7 +44,7 @@ namespace CG_Manage
             }
             return CG_Windows.GetMax(list);
         }
-
+        //添加UI到字典   
         public void AddUI(string ClassName, GameObject obj)
         {
 

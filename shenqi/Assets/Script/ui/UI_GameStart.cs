@@ -9,21 +9,30 @@ public class UI_GameStart : UI_Manage {
         userdata = new User_Manage();
         initUI();
     }
+    //----------------初始化开始界面
     protected override void initUI() {
         AddUI(ClassID, this.gameObject);
-        initStartBtns();
+        initBtns();
     }
-    //----------------初始化开始界面
-    void initStartBtns() {
-        Transform  begin = transform.Find("bgein");
-        Transform  zc = transform.Find("zc");
 
-        UIEventListener.Get(begin.gameObject).onClick = BtnStart_dl;
-        UIEventListener.Get(zc.gameObject).onClick = BtnStart_zc;
+    protected override void initBtns() {
+        string[] arr = { "bgein","zc" };
+        foreach (var obj in arr) {
+            Transform button = transform.Find(obj);
+            UIEventListener.Get(button.gameObject).onClick = Callback;
+        }
     }
     protected override void Callback(GameObject Obj)
     {
+        switch (Obj.name) {
+            case "bgein":
+                BtnStart_dl(Obj);
+                break;
+            case "zc":
+                BtnStart_zc(Obj);
+                break;
 
+        }
     }
     //登录按钮
     void BtnStart_dl(GameObject obj) {
@@ -42,14 +51,8 @@ public class UI_GameStart : UI_Manage {
                 break;
         }
     }
-    //注册按钮
+    //注册按钮  初始化注册界面
     void BtnStart_zc(GameObject obj){
-        initZClayer();
-        Debug.Log("注册界面");//待定
-    }
-
-    //----------------初始化注册界面
-    void initZClayer() {
         UI_Manage login = new UI_Login();
     }
 }

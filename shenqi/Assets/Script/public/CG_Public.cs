@@ -84,7 +84,7 @@ namespace CG_Public
             }
             else
             {
-                return 0;
+                return 1;
             }
         }
         public static int GetMax(List<int> array)
@@ -94,7 +94,7 @@ namespace CG_Public
                 return array.Max();
             }
             else {
-                return 0;
+                return 1;
             }
         }
     }
