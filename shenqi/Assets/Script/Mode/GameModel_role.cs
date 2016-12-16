@@ -15,7 +15,7 @@ public class GameModel_role : Model_Managers
     }
     void Start()
     {
-        userdata = new User_Manage();
+        userdata = User_Manage.CreateInstance();
 
         LoadData(CG_variable.GetUserInfo["Model"]);
 

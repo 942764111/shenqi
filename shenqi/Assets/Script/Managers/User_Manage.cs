@@ -7,6 +7,17 @@ namespace CG_Manage
 {
     public class User_Manage : UserData, interface_User
     {
+        private static User_Manage _instance = null;
+        private User_Manage() { }
+        public static User_Manage CreateInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new User_Manage();
+            }
+            return _instance;
+        }
+
         //实例化 接口方法
         private string GetKey_hp = SetUserInfoKey.HP.ToString();
         public string GetKey_HP

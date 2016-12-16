@@ -6,7 +6,7 @@ public class UI_GameStart : UI_Manage {
     string ClassID = "UI_GameStart";
     User_Manage userdata;
     void Start() {
-        userdata = new User_Manage();
+        userdata = User_Manage.CreateInstance();
         initUI();
     }
     //----------------初始化开始界面
