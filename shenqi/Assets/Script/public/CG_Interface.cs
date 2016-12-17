@@ -1,4 +1,6 @@
-﻿namespace CG_Public
+﻿using LitJson;
+using UnityEngine;
+namespace CG_Public
 {
     public interface interface_User
     {
@@ -13,5 +15,20 @@
         string GetKey_MAC { get; }//魔法防御
         string GetKey_Model { get; }//角色模型
         string[] GetModelKeys { get; }//获取所有Key
+    }
+    public interface interface_Model
+    {
+        void LoadData();
+        void CreateModel(string ModelPath, string ModelName);
+        void AddInfo(JsonData info);
+    }
+    public interface interface_UI
+    {
+         void initUI();
+         void initBtns();
+         void Callback(GameObject Obj);
+    }
+    public interface interface_Scene
+    {
     }
 }

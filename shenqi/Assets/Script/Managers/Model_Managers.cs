@@ -2,10 +2,17 @@
 using LitJson;
 namespace CG_Manage
 {
-    public abstract class Model_Managers : MonoBehaviour
+    public class Model_Managers : MonoBehaviour
     {
-        public abstract void LoadData(string ModelID);
-        protected abstract void CreateModel(string ModelPath, string ModelName);
-        protected abstract void AddInfo(JsonData info);
+        private static Model_Managers _instance = null;
+        protected Model_Managers() { }
+        public static Model_Managers CreateInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new Model_Managers();
+            }
+            return _instance;
+        }
     }
 }

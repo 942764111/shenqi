@@ -44,63 +44,63 @@ public class UserData
     string Sex = "1";// 1为男    2为女
     string Model = "1";// Model iD    参考Model.json  配置
 
-    protected void  createXml(string name, string account, string password)
+    protected void createXml(string name, string account, string password)
     {
-            string filepath = Application.dataPath + @"/Resources/UserData.xml";
-            if (!File.Exists(filepath)){
-                XmlDocument xmlDoc = new XmlDocument();
-                CreateData(xmlDoc, name, filepath);
-                //XmlElement root = xmlDoc.CreateElement("transforms");
-                //XmlElement elmNew = xmlDoc.CreateElement("rotation");
-                //elmNew.SetAttribute(SetUserKey.id.ToString(), id.ToString());
-                //elmNew.SetAttribute(SetUserKey.account.ToString(), account.ToString());
-                //elmNew.SetAttribute(SetUserKey.password.ToString(), password.ToString());
+        string filepath = Application.dataPath + @"/Resources/UserData.xml";
+        if (!File.Exists(filepath))
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            XmlElement root = xmlDoc.CreateElement("transforms");
+            XmlElement elmNew = xmlDoc.CreateElement("rotation");
+            elmNew.SetAttribute(SetUserKey.id.ToString(), id.ToString());
+            elmNew.SetAttribute(SetUserKey.account.ToString(), account.ToString());
+            elmNew.SetAttribute(SetUserKey.password.ToString(), password.ToString());
 
-                //XmlElement rotation_Name = xmlDoc.CreateElement(SetUserInfoKey.Name.ToString());
-                //rotation_Name.InnerText = name.ToString();
+            XmlElement rotation_Name = xmlDoc.CreateElement(SetUserInfoKey.Name.ToString());
+            rotation_Name.InnerText = name.ToString();
 
-                //XmlElement rotation_HP = xmlDoc.CreateElement(SetUserInfoKey.HP.ToString());
-                //rotation_HP.InnerText = HP.ToString();
+            XmlElement rotation_HP = xmlDoc.CreateElement(SetUserInfoKey.HP.ToString());
+            rotation_HP.InnerText = HP.ToString();
 
-                //XmlElement rotation_MP = xmlDoc.CreateElement(SetUserInfoKey.MP.ToString());
-                //rotation_MP.InnerText = MP.ToString();
+            XmlElement rotation_MP = xmlDoc.CreateElement(SetUserInfoKey.MP.ToString());
+            rotation_MP.InnerText = MP.ToString();
 
-                //XmlElement rotation_ATTACK = xmlDoc.CreateElement(SetUserInfoKey.Attack.ToString());
-                //rotation_ATTACK.InnerText = Attack.ToString();
+            XmlElement rotation_ATTACK = xmlDoc.CreateElement(SetUserInfoKey.Attack.ToString());
+            rotation_ATTACK.InnerText = Attack.ToString();
 
-                //XmlElement rotation_MAGIC = xmlDoc.CreateElement(SetUserInfoKey.Magic.ToString());
-                //rotation_MAGIC.InnerText = Magic.ToString();
+            XmlElement rotation_MAGIC = xmlDoc.CreateElement(SetUserInfoKey.Magic.ToString());
+            rotation_MAGIC.InnerText = Magic.ToString();
 
-                //XmlElement rotation_Role = xmlDoc.CreateElement(SetUserInfoKey.Role.ToString());
-                //rotation_Role.InnerText = Role.ToString();
+            XmlElement rotation_Role = xmlDoc.CreateElement(SetUserInfoKey.Role.ToString());
+            rotation_Role.InnerText = Role.ToString();
 
-                //XmlElement rotation_Sex = xmlDoc.CreateElement(SetUserInfoKey.Sex.ToString());
-                //rotation_Sex.InnerText = Sex.ToString();
+            XmlElement rotation_Sex = xmlDoc.CreateElement(SetUserInfoKey.Sex.ToString());
+            rotation_Sex.InnerText = Sex.ToString();
 
-                //XmlElement rotation_Armor = xmlDoc.CreateElement(SetUserInfoKey.Armor.ToString());
-                //rotation_Armor.InnerText = Armor.ToString();
+            XmlElement rotation_Armor = xmlDoc.CreateElement(SetUserInfoKey.Armor.ToString());
+            rotation_Armor.InnerText = Armor.ToString();
 
-                //XmlElement rotation_MAC = xmlDoc.CreateElement(SetUserInfoKey.MAC.ToString());
-                //rotation_MAC.InnerText = MAC.ToString();
+            XmlElement rotation_MAC = xmlDoc.CreateElement(SetUserInfoKey.MAC.ToString());
+            rotation_MAC.InnerText = MAC.ToString();
 
-                //XmlElement rotation_Model = xmlDoc.CreateElement(SetUserInfoKey.Model.ToString());
-                //rotation_Model.InnerText = Model.ToString();
+            XmlElement rotation_Model = xmlDoc.CreateElement(SetUserInfoKey.Model.ToString());
+            rotation_Model.InnerText = Model.ToString();
 
-                //elmNew.AppendChild(rotation_Name);
-                //elmNew.AppendChild(rotation_HP);
-                //elmNew.AppendChild(rotation_MP);
-                //elmNew.AppendChild(rotation_ATTACK);
-                //elmNew.AppendChild(rotation_MAGIC);
-                //elmNew.AppendChild(rotation_Role);
-                //elmNew.AppendChild(rotation_Sex);
-                //elmNew.AppendChild(rotation_Armor);
-                //elmNew.AppendChild(rotation_MAC);
-                //elmNew.AppendChild(rotation_Model);
-                //root.AppendChild(elmNew);
-                //xmlDoc.AppendChild(root);
-                //xmlDoc.Save(filepath);
-                Debug.Log("createXml OK!");
-            }
+            elmNew.AppendChild(rotation_Name);
+            elmNew.AppendChild(rotation_HP);
+            elmNew.AppendChild(rotation_MP);
+            elmNew.AppendChild(rotation_ATTACK);
+            elmNew.AppendChild(rotation_MAGIC);
+            elmNew.AppendChild(rotation_Role);
+            elmNew.AppendChild(rotation_Sex);
+            elmNew.AppendChild(rotation_Armor);
+            elmNew.AppendChild(rotation_MAC);
+            elmNew.AppendChild(rotation_Model);
+            root.AppendChild(elmNew);
+            xmlDoc.AppendChild(root);
+            xmlDoc.Save(filepath);
+            Debug.Log("createXml OK!");
+        }
     }
     protected string AddXml(string name, string account, string password)
     {
@@ -121,58 +121,58 @@ public class UserData
                     break;
                 }
             }
-            if (on_off=="1")
+            if (on_off == "1")
             {
-                CreateData(xmlDoc, name, filepath);
-                //XmlNode root = xmlDoc.SelectSingleNode("transforms");
-                //XmlElement elmNew = xmlDoc.CreateElement("rotation");
-                //elmNew.SetAttribute(SetUserKey.id.ToString(), id.ToString());
-                //elmNew.SetAttribute(SetUserKey.account.ToString(), account.ToString());
-                //elmNew.SetAttribute(SetUserKey.password.ToString(), password.ToString());
 
-               // XmlElement rotation_Name = xmlDoc.CreateElement(SetUserInfoKey.Name.ToString());
-               // rotation_Name.InnerText = name.ToString();
+                XmlNode root = xmlDoc.SelectSingleNode("transforms");
+                XmlElement elmNew = xmlDoc.CreateElement("rotation");
+                elmNew.SetAttribute(SetUserKey.id.ToString(), (Maxid+1).ToString());
+                elmNew.SetAttribute(SetUserKey.account.ToString(), account.ToString());
+                elmNew.SetAttribute(SetUserKey.password.ToString(), password.ToString());
 
-                //XmlElement rotation_HP = xmlDoc.CreateElement(SetUserInfoKey.HP.ToString());
-                //rotation_HP.InnerText = HP.ToString();
+                XmlElement rotation_Name = xmlDoc.CreateElement(SetUserInfoKey.Name.ToString());
+                rotation_Name.InnerText = name.ToString();
 
-                //XmlElement rotation_MP = xmlDoc.CreateElement(SetUserInfoKey.MP.ToString());
-                //rotation_MP.InnerText = MP.ToString();
+                XmlElement rotation_HP = xmlDoc.CreateElement(SetUserInfoKey.HP.ToString());
+                rotation_HP.InnerText = HP.ToString();
 
-                //XmlElement rotation_ATTACK = xmlDoc.CreateElement(SetUserInfoKey.Attack.ToString());
-                //rotation_ATTACK.InnerText = Attack.ToString();
+                XmlElement rotation_MP = xmlDoc.CreateElement(SetUserInfoKey.MP.ToString());
+                rotation_MP.InnerText = MP.ToString();
 
-                //XmlElement rotation_MAGIC = xmlDoc.CreateElement(SetUserInfoKey.Magic.ToString());
-                //rotation_MAGIC.InnerText = Magic.ToString();
+                XmlElement rotation_ATTACK = xmlDoc.CreateElement(SetUserInfoKey.Attack.ToString());
+                rotation_ATTACK.InnerText = Attack.ToString();
 
-                //XmlElement rotation_Role = xmlDoc.CreateElement(SetUserInfoKey.Role.ToString());
-                //rotation_Role.InnerText = Role.ToString();
+                XmlElement rotation_MAGIC = xmlDoc.CreateElement(SetUserInfoKey.Magic.ToString());
+                rotation_MAGIC.InnerText = Magic.ToString();
 
-                //XmlElement rotation_Sex = xmlDoc.CreateElement(SetUserInfoKey.Sex.ToString());
-                //rotation_Sex.InnerText = Sex.ToString();
+                XmlElement rotation_Role = xmlDoc.CreateElement(SetUserInfoKey.Role.ToString());
+                rotation_Role.InnerText = Role.ToString();
 
-                //XmlElement rotation_Armor = xmlDoc.CreateElement(SetUserInfoKey.Armor.ToString());
-                //rotation_Armor.InnerText = Armor.ToString();
+                XmlElement rotation_Sex = xmlDoc.CreateElement(SetUserInfoKey.Sex.ToString());
+                rotation_Sex.InnerText = Sex.ToString();
 
-                //XmlElement rotation_MAC = xmlDoc.CreateElement(SetUserInfoKey.MAC.ToString());
-                //rotation_MAC.InnerText = MAC.ToString();
+                XmlElement rotation_Armor = xmlDoc.CreateElement(SetUserInfoKey.Armor.ToString());
+                rotation_Armor.InnerText = Armor.ToString();
 
-                //XmlElement rotation_Model = xmlDoc.CreateElement(SetUserInfoKey.Model.ToString());
-                //rotation_Model.InnerText = Model.ToString();
+                XmlElement rotation_MAC = xmlDoc.CreateElement(SetUserInfoKey.MAC.ToString());
+                rotation_MAC.InnerText = MAC.ToString();
 
-                //elmNew.AppendChild(rotation_Name);
-                //elmNew.AppendChild(rotation_HP);
-                //elmNew.AppendChild(rotation_MP);
-                //elmNew.AppendChild(rotation_ATTACK);
-                //elmNew.AppendChild(rotation_MAGIC);
-                //elmNew.AppendChild(rotation_Role);
-                //elmNew.AppendChild(rotation_Sex);
-                //elmNew.AppendChild(rotation_Armor);
-                //elmNew.AppendChild(rotation_MAC);
-                //elmNew.AppendChild(rotation_Model);
-                //root.AppendChild(elmNew);
-                //xmlDoc.AppendChild(root);
-                //xmlDoc.Save(filepath);
+                XmlElement rotation_Model = xmlDoc.CreateElement(SetUserInfoKey.Model.ToString());
+                rotation_Model.InnerText = Model.ToString();
+
+                elmNew.AppendChild(rotation_Name);
+                elmNew.AppendChild(rotation_HP);
+                elmNew.AppendChild(rotation_MP);
+                elmNew.AppendChild(rotation_ATTACK);
+                elmNew.AppendChild(rotation_MAGIC);
+                elmNew.AppendChild(rotation_Role);
+                elmNew.AppendChild(rotation_Sex);
+                elmNew.AppendChild(rotation_Armor);
+                elmNew.AppendChild(rotation_MAC);
+                elmNew.AppendChild(rotation_Model);
+                root.AppendChild(elmNew);
+                xmlDoc.AppendChild(root);
+                xmlDoc.Save(filepath);
                 Debug.Log("AddXml OK!");
             }
         }
@@ -334,7 +334,7 @@ public class UserData
 
     }
     //暂时没用
-    string FindXml(string id,string key, string Type)
+    string FindXml(string id, string key, string Type)
     {
         string Value = null;
         string filepath = Application.dataPath + @"/Resources/UserData.xml";
@@ -371,57 +371,5 @@ public class UserData
 
         }
         return Value;
-    }
-    void CreateData(XmlDocument xmlDoc, string name, string filepath)
-    {
-        XmlNode root = xmlDoc.SelectSingleNode("transforms");
-        XmlElement elmNew = xmlDoc.CreateElement("rotation");
-        elmNew.SetAttribute(SetUserKey.id.ToString(), id.ToString());
-        elmNew.SetAttribute(SetUserKey.account.ToString(), account.ToString());
-        elmNew.SetAttribute(SetUserKey.password.ToString(), password.ToString());
-
-        XmlElement rotation_Name = xmlDoc.CreateElement(SetUserInfoKey.Name.ToString());
-        rotation_Name.InnerText = name.ToString();
-
-        XmlElement rotation_HP = xmlDoc.CreateElement(SetUserInfoKey.HP.ToString());
-        rotation_HP.InnerText = HP.ToString();
-
-        XmlElement rotation_MP = xmlDoc.CreateElement(SetUserInfoKey.MP.ToString());
-        rotation_MP.InnerText = MP.ToString();
-
-        XmlElement rotation_ATTACK = xmlDoc.CreateElement(SetUserInfoKey.Attack.ToString());
-        rotation_ATTACK.InnerText = Attack.ToString();
-
-        XmlElement rotation_MAGIC = xmlDoc.CreateElement(SetUserInfoKey.Magic.ToString());
-        rotation_MAGIC.InnerText = Magic.ToString();
-
-        XmlElement rotation_Role = xmlDoc.CreateElement(SetUserInfoKey.Role.ToString());
-        rotation_Role.InnerText = Role.ToString();
-
-        XmlElement rotation_Sex = xmlDoc.CreateElement(SetUserInfoKey.Sex.ToString());
-        rotation_Sex.InnerText = Sex.ToString();
-
-        XmlElement rotation_Armor = xmlDoc.CreateElement(SetUserInfoKey.Armor.ToString());
-        rotation_Armor.InnerText = Armor.ToString();
-
-        XmlElement rotation_MAC = xmlDoc.CreateElement(SetUserInfoKey.MAC.ToString());
-        rotation_MAC.InnerText = MAC.ToString();
-
-        XmlElement rotation_Model = xmlDoc.CreateElement(SetUserInfoKey.Model.ToString());
-        rotation_Model.InnerText = Model.ToString();
-
-        elmNew.AppendChild(rotation_Name);
-        elmNew.AppendChild(rotation_HP);
-        elmNew.AppendChild(rotation_MP);
-        elmNew.AppendChild(rotation_ATTACK);
-        elmNew.AppendChild(rotation_MAGIC);
-        elmNew.AppendChild(rotation_Role);
-        elmNew.AppendChild(rotation_Sex);
-        elmNew.AppendChild(rotation_Armor);
-        elmNew.AppendChild(rotation_MAC);
-        elmNew.AppendChild(rotation_Model);
-        root.AppendChild(elmNew);
-        xmlDoc.AppendChild(root);
-        xmlDoc.Save(filepath);
     }
 }

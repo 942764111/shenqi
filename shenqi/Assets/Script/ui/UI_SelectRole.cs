@@ -3,56 +3,71 @@ using System.Collections;
 using LitJson;
 using CG_Manage;
 using CG_Public;
-public class SelectRole : MonoBehaviour {
+public class UI_SelectRole : UI_Manage,interface_UI
+{
+    string ClassID = "UI_SelectRole";
+    User_Manage userdata;
+    GameObject me;
     Animation Animobj;
     ArrayList Action = new ArrayList();
     JsonData json;
-    User_Manage userdata;
     string job = "";
     string sex = "";
     string Model = "1";
     //// Use this for initialization
-    void Start()
+
+    public UI_SelectRole()
     {
         userdata = User_Manage.CreateInstance();
 
         json = CG_Config.SELECTROLE;
+
+        initUI();
+    }
+
+    public void initUI()
+    {
+        userdata = User_Manage.CreateInstance();
+        me = CloneUI(ClassID);
 
         initAddAction();
 
         initBtns();
 
         StartState();
-    }
-    //----------------------------------------初始化选择角色界面按钮
-    void StartState()
-    {
-        JsonData jobs = json["job"];
-        UIButton btn = GameObject.Find("btns/job/" + (string)jobs[0]["name"]).GetComponent<UIButton>();
-        Transform obj = transform.Find("ui/hero/" + (string)jobs[0]["name"]);
-        TheRunState(btn, obj, jobs[0]["jobPath"], jobs[0]["sexPath"]);
-        otherOnClickState("sj");
-        job = (string)jobs[0]["job"];
-        sex = (string)jobs[0]["sex"];
-    }
 
-    void initBtns() {
+        AddUI(ClassID, me);
+    }
+    public void initBtns()
+    {
         //职业按钮
         JsonData jobs = json["job"];
-        GameObject objbtn;
-        for (int i = 0; i < jobs.Count; i++) {
-            objbtn = GameObject.Find("btns/job/" + (string)jobs[i]["name"]);
+        Transform objbtn;
+        for (int i = 0; i < jobs.Count; i++)
+        {
+            objbtn = me.transform.Find("btns/job/" + (string)jobs[i]["name"]);
             UIEventListener.Get(objbtn.gameObject).onClick = jobsOnClick;
         }
 
         //其它按钮
         string[] otherarr = { "sj", "ks" };
-        GameObject otherbtn;
+        Transform otherbtn;
         for (int i = 0; i < otherarr.Length; i++)
         {
-            otherbtn = GameObject.Find("btns/other/" + otherarr[i]);
-            UIEventListener.Get(otherbtn.gameObject).onClick = otherOnClick;
+            otherbtn = me.transform.Find("btns/other/" + otherarr[i]);
+            UIEventListener.Get(otherbtn.gameObject).onClick = Callback;
         }
+    }
+    //----------------------------------------初始化选择角色界面按钮
+    void StartState()
+    {
+        JsonData jobs = json["job"];
+        UIButton btn = me.transform.Find("btns/job/" + (string)jobs[0]["name"]).GetComponent<UIButton>();
+        Transform obj = me.transform.Find("ui/hero/" + (string)jobs[0]["name"]);
+        TheRunState(btn, obj, jobs[0]["jobPath"], jobs[0]["sexPath"]);
+        otherOnClickState("sj");
+        job = (string)jobs[0]["job"];
+        sex = (string)jobs[0]["sex"];
     }
     //----------------------------------------职业按钮
     public void jobsOnClick(GameObject obj)
@@ -65,11 +80,11 @@ public class SelectRole : MonoBehaviour {
         Transform obj;
         for (int i = 0; i < jobs.Count; i++)
         {
-            btn = GameObject.Find("btns/job/" + (string)jobs[i]["name"]).GetComponent<UIButton>();
-            obj = transform.Find("ui/hero/" + (string)jobs[i]["name"]);
+            btn = me.transform.Find("btns/job/" + (string)jobs[i]["name"]).GetComponent<UIButton>();
+            obj = me.transform.Find("ui/hero/" + (string)jobs[i]["name"]);
             if ((string)jobs[i]["name"] == objname)
             {
-                TheRunState(btn, obj,jobs[i]["jobPath"], jobs[i]["sexPath"]);
+                TheRunState(btn, obj, jobs[i]["jobPath"], jobs[i]["sexPath"]);
                 job = (string)jobs[i]["job"];
                 sex = (string)jobs[i]["sex"];
                 Model = (string)jobs[i]["model"];
@@ -109,12 +124,12 @@ public class SelectRole : MonoBehaviour {
     }
 
     //----------------------------------------其它按钮
-    public void otherOnClick(GameObject obj)
+    public void Callback(GameObject obj)
     {
        otherOnClickState(obj.name);
     }
     void otherOnClickState(string objname) {
-        Transform Getname = transform.Find("ui/name/Label");
+        Transform Getname = me.transform.Find("ui/name/Label");
         UILabel name = Getname.GetComponent<UILabel>();
         switch (objname) {
              case "sj": 
@@ -139,7 +154,7 @@ public class SelectRole : MonoBehaviour {
                     userdata.SetInfo(CG_variable.GetUserInfo["id"], userdata.GetKey_Role, job);
                     userdata.SetInfo(CG_variable.GetUserInfo["id"], userdata.GetKey_Sex, sex);
                     userdata.SetInfo(CG_variable.GetUserInfo["id"], userdata.GetKey_Model, Model);
-                    GameModel_role role = new GameModel_role();
+                //    GameModel_role role = new GameModel_role();
                 }
                 break;
         }

@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using CG_Public;
 namespace CG_Manage
 {
-    public abstract class UI_Manage : MonoBehaviour
+    public class UI_Manage : MonoBehaviour
     {
-        protected abstract void initUI();
-        protected abstract void initBtns();
-        protected abstract void Callback(GameObject Obj);
+        private static UI_Manage _instance = null;
+        protected UI_Manage() { }
+        public static UI_Manage CreateInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new UI_Manage();
+            }
+            return _instance;
+        }
         //删除UI
         public void removeUI(GameObject Obj, string ClassName)
         {

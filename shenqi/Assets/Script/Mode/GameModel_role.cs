@@ -3,38 +3,46 @@ using System.Collections;
 using LitJson;
 using CG_Manage;
 using CG_Public;
-public class GameModel_role : Model_Managers
+public class GameModel_role : Model_Managers,interface_Model
 {
     JsonData ModelData;
     GameObject Model;
     User_Manage userdata;
-    void Awake() {
-        ModelData = null;
+    string ModelID;
+    Transform me = null;
+    public GameModel_role(string ModelID) {
+        this.ModelID = ModelID;
+        ModelData = CG_Config.MODEL[this.ModelID];
         Model = null;
         userdata = null;
+        init();
     }
-    void Start()
-    {
+    void init() {
+
         userdata = User_Manage.CreateInstance();
 
-        LoadData(CG_variable.GetUserInfo["Model"]);
+        LoadData();
 
         CreateModel((string)ModelData["path"], (string)ModelData["model"]);
 
-        AddInfo(ModelData["info"]);
+       // AddInfo(ModelData["info"]);
     }
-    public override void LoadData(string ModelID)
+    public Transform GetThis() {
+        return me;
+    }
+    public void LoadData()
     {
-        ModelData = CG_Config.MODEL[ModelID];
         Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["JZMXSJ"], ModelData.ToJson()));
     }
-    protected override void CreateModel(string ModelPath, string ModelName) {
+    public void CreateModel(string ModelPath, string ModelName) {
         GameObject Modelres = CG_Games.LoadObject(ModelPath+ ModelName);
-        Model = Instantiate(Modelres);
-        transform.parent = Model.transform;
-        Model.transform.localPosition = new Vector3(0, 0, 0); 
+        GameObject obj = Instantiate(Modelres);
+        obj.transform.localPosition = new Vector3(0, 0, 0);
+        Vector2 size = new Vector2(1f, 1f);
+        obj.transform.localScale = size;
+        me = obj.transform;
     }
-    protected override void AddInfo(JsonData info){
+    public void AddInfo(JsonData info){
         int index = 0;
         IDictionary infoValue = info as IDictionary;
         Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["BROKEN"], (string)CG_Config.LABEL["ZRJSSX"]));

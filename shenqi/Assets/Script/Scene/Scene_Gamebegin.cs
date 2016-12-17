@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using CG_Manage;
-public class Scene_Gamebegin : Scene_Manage {
+using CG_Public;
+public class Scene_Gamebegin : Scene_Manage, interface_Scene
+{
     string ClassID = "Scene_Gamebegin";
     User_Manage userdata;
     void Start() {
@@ -9,22 +11,23 @@ public class Scene_Gamebegin : Scene_Manage {
         initUI();
     }
     //----------------初始化开始界面
-    protected override void initUI()
+    public void initUI()
     {
         AddUI(ClassID, this.gameObject);
+
         initBtns();
     }
 
-    protected override void initBtns()
+    public void initBtns()
     {
         string[] arr = { "bgein", "zc" };
         foreach (var obj in arr)
         {
-            Transform button = transform.Find(obj);
+            Transform button = this.transform.Find("Begin/"+obj);
             UIEventListener.Get(button.gameObject).onClick = Callback;
         }
     }
-    protected override void Callback(GameObject Obj)
+    public void Callback(GameObject Obj)
     {
         switch (Obj.name)
         {
@@ -46,11 +49,15 @@ public class Scene_Gamebegin : Scene_Manage {
         switch (on_off)
         {
             case "1":
-                GameModel_role role = new GameModel_role();
+              //  GameModel_role role = new GameModel_role();
                 LoadLevel("Scene_Game");
                 break;
             case "2":
-                LoadLevel("Scene_Selectrole");
+
+                //   LoadLevel("Scene_Selectrole");
+                Transform me = transform.Find("Begin");
+                me.gameObject.SetActive(false);
+                new UI_SelectRole();
                 break;
             default:
                 break;

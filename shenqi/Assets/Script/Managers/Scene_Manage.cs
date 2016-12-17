@@ -4,11 +4,18 @@ using System.Collections.Generic;
 using CG_Public;
 namespace CG_Manage
 {
-    public abstract class Scene_Manage : MonoBehaviour
+    public class Scene_Manage : MonoBehaviour
     {
-        protected abstract void initUI();
-        protected abstract void initBtns();
-        protected abstract void Callback(GameObject Obj);
+        private static Scene_Manage _instance = null;
+        protected Scene_Manage() { }
+        public static Scene_Manage CreateInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new Scene_Manage();
+            }
+            return _instance;
+        }
 
         public void LoadLevel(string SceneName)
         {

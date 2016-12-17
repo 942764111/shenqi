@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using CG_Manage;
-public class UI_Login : UI_Manage
+using CG_Public;
+public class UI_Login : UI_Manage, interface_UI
 {
     string ClassID = "UI_Login";
     User_Manage userdata;
@@ -8,7 +10,7 @@ public class UI_Login : UI_Manage
     public UI_Login() {
         initUI();
     }
-    protected override void initUI()
+    public void initUI()
     {
         userdata = User_Manage.CreateInstance();
         me =  CloneUI(ClassID);
@@ -16,16 +18,16 @@ public class UI_Login : UI_Manage
         initBtns();
     }
 
-    protected override void initBtns()
+    public void initBtns()
     {
         string[] arr = { "kaishi", "guanbi" };
         for (int i = 0; i < arr.Length; i++)
         {
-            GameObject obj = GameObject.Find("zhuce/" + arr[i]);
-            UIEventListener.Get(obj).onClick = Callback;
+            Transform obj = me.transform.Find(arr[i]);
+            UIEventListener.Get(obj.gameObject).onClick = Callback;
         }
     }
-    protected override void Callback(GameObject Obj)
+    public void Callback(GameObject Obj)
     {
         switch (Obj.name)
         {
@@ -44,11 +46,13 @@ public class UI_Login : UI_Manage
     {
         string state = "";
         string[] str = { "namobj/name", "zh", "mima" };
+        List<string> text = new List<string>();
         for (int i = 0; i < str.Length; i++)
         {
-            UILabel label = GameObject.Find("zhuce/shurukuang/" + str[i]).GetComponent<UILabel>();
-            state = userdata.GetZhuce(label.text, label.text, label.text);
+            UILabel label = GameObject.Find("shurukuang/" + str[i]).GetComponent<UILabel>();
+            text.Add(label.text);
         }
+        state = userdata.GetZhuce(text[0], text[1], text[2]);
         switch (state)
         {
             case "1":

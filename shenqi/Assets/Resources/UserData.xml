@@ -1,30 +1,6 @@
 <transforms>
   <rotation id="1" account="qiaobin" password="123">
-    <Name>左で南</Name>
-    <HP>400</HP>
-    <MP>300</MP>
-    <Attack>50</Attack>
-    <Magic>50</Magic>
-    <Role>2</Role>
-    <Sex>1</Sex>
-    <Armor>50</Armor>
-    <MAC>50</MAC>
-    <Model>2</Model>
-  </rotation>
-  <rotation id="1" account="hello" password="word">
-    <Name>word</Name>
-    <HP>0</HP>
-    <MP>0</MP>
-    <Attack>0</Attack>
-    <Magic>0</Magic>
-    <Role>0</Role>
-    <Sex>1</Sex>
-    <Armor>0</Armor>
-    <MAC>0</MAC>
-    <Model>0</Model>
-  </rotation>
-  <rotation id="1" account="adsdasasd" password="asd151154">
-    <Name>456</Name>
+    <Name>哈哈哈</Name>
     <HP>0</HP>
     <MP>0</MP>
     <Attack>0</Attack>
@@ -35,8 +11,8 @@
     <MAC>0</MAC>
     <Model>1</Model>
   </rotation>
-  <rotation id="1" account="adsdasasd" password="asd151154">
-    <Name>452</Name>
+  <rotation id="2" account="hello" password="word">
+    <Name>455</Name>
     <HP>0</HP>
     <MP>0</MP>
     <Attack>0</Attack>
@@ -46,17 +22,5 @@
     <Armor>0</Armor>
     <MAC>0</MAC>
     <Model>1</Model>
-  </rotation>
-  <rotation id="3" account="haha" password="haha">
-    <Name>┮α西</Name>
-    <HP>500</HP>
-    <MP>200</MP>
-    <Attack>50</Attack>
-    <Magic>50</Magic>
-    <Role>3</Role>
-    <Sex>1</Sex>
-    <Armor>50</Armor>
-    <MAC>50</MAC>
-    <Model>3</Model>
   </rotation>
 </transforms>
