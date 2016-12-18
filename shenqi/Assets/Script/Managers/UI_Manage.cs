@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using CG_Public;
 namespace CG_Manage
 {
-    public class UI_Manage : MonoBehaviour
+    public class UI_Manage
     {
         private static UI_Manage _instance = null;
         protected UI_Manage() { }
@@ -16,9 +16,10 @@ namespace CG_Manage
             return _instance;
         }
         //删除UI
+        MB_Manage MB = MB_Manage.CreateInstance();
         public void removeUI(GameObject Obj, string ClassName)
         {
-            Destroy(Obj);
+            MB.MB_Destroy(Obj);
             Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["REMOVE"], ClassName));
         }
         //克隆ui;
@@ -26,7 +27,7 @@ namespace CG_Manage
         {
             GameObject res = (GameObject)Resources.Load((string)CG_Config.RESPath["UI"]+ ClassName);
             Vector2 size = new Vector2(1f, 1f);
-            GameObject obj = Instantiate(res);
+            GameObject obj = MB.MB_Instantiate(res);
             obj.transform.parent = GameObject.Find("UI Root").transform;
             obj.transform.localScale = size;
             resetZOrder(obj);

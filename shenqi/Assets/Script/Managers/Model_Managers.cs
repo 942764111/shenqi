@@ -2,7 +2,7 @@
 using LitJson;
 namespace CG_Manage
 {
-    public class Model_Managers : MonoBehaviour
+    public class Model_Managers : MB_Manage
     {
         private static Model_Managers _instance = null;
         protected Model_Managers() { }

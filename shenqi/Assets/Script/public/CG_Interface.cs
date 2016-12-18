@@ -14,6 +14,7 @@ namespace CG_Public
         string GetKey_Name { get; }
         string GetKey_MAC { get; }//魔法防御
         string GetKey_Model { get; }//角色模型
+        string GetKey_ID { get; }//角色ID
         string[] GetModelKeys { get; }//获取所有Key
     }
     public interface interface_Model

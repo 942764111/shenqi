@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using CG_Public;
 namespace CG_Manage
 {
-    public class Scene_Manage : MonoBehaviour
+    public class Scene_Manage : MB_Manage
     {
         private static Scene_Manage _instance = null;
         protected Scene_Manage() { }

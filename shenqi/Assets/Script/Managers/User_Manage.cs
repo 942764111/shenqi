@@ -101,6 +101,14 @@ namespace CG_Manage
                 return GetKey_model;
             }
         }
+        private string GetKey_id = SetUserInfoKey.Model.ToString();//角色ID
+        public string GetKey_ID
+        {
+            get
+            {
+                return GetKey_id;
+            }
+        }
 
         private string[] GetModelkeys = {
             SetUserInfoKey.HP.ToString(),

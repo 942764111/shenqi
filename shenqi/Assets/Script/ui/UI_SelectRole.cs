@@ -24,12 +24,13 @@ public class UI_SelectRole : UI_Manage,interface_UI
 
         initUI();
     }
-
     public void initUI()
     {
-        userdata = User_Manage.CreateInstance();
-        me = CloneUI(ClassID);
+       userdata = User_Manage.CreateInstance();
+       me = CloneUI(ClassID);
 
+        GameModel_role role =  new GameModel_role();
+      //  role.GetThis().localRotation = new Vector2(0f,-180f);
         initAddAction();
 
         initBtns();
@@ -150,10 +151,10 @@ public class UI_SelectRole : UI_Manage,interface_UI
                     Debug.LogError(CG_Windows.Format((string)CG_Config.LABEL["JZJSONCG"]));
                 }
                 else {
-                    userdata.SetInfo(CG_variable.GetUserInfo["id"], userdata.GetKey_Name, name.text);
-                    userdata.SetInfo(CG_variable.GetUserInfo["id"], userdata.GetKey_Role, job);
-                    userdata.SetInfo(CG_variable.GetUserInfo["id"], userdata.GetKey_Sex, sex);
-                    userdata.SetInfo(CG_variable.GetUserInfo["id"], userdata.GetKey_Model, Model);
+                    userdata.SetInfo(CG_variable.GetUserInfo[userdata.GetKey_ID], userdata.GetKey_Name, name.text);
+                    userdata.SetInfo(CG_variable.GetUserInfo[userdata.GetKey_ID], userdata.GetKey_Role, job);
+                    userdata.SetInfo(CG_variable.GetUserInfo[userdata.GetKey_ID], userdata.GetKey_Sex, sex);
+                    userdata.SetInfo(CG_variable.GetUserInfo[userdata.GetKey_ID], userdata.GetKey_Model, Model);
                 //    GameModel_role role = new GameModel_role();
                 }
                 break;

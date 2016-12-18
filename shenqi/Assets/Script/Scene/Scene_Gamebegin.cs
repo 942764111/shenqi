@@ -13,6 +13,9 @@ public class Scene_Gamebegin : Scene_Manage, interface_Scene
     //----------------初始化开始界面
     public void initUI()
     {
+
+        userdata = User_Manage.CreateInstance();
+
         AddUI(ClassID, this.gameObject);
 
         initBtns();

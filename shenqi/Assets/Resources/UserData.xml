@@ -1,14 +1,14 @@
 <transforms>
   <rotation id="1" account="qiaobin" password="123">
     <Name>哈哈哈</Name>
-    <HP>0</HP>
-    <MP>0</MP>
-    <Attack>0</Attack>
-    <Magic>0</Magic>
+    <HP>400</HP>
+    <MP>250</MP>
+    <Attack>150</Attack>
+    <Magic>40</Magic>
     <Role>0</Role>
     <Sex>1</Sex>
-    <Armor>0</Armor>
-    <MAC>0</MAC>
+    <Armor>30</Armor>
+    <MAC>30</MAC>
     <Model>1</Model>
   </rotation>
   <rotation id="2" account="hello" password="word">
