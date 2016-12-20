@@ -1,31 +1,59 @@
 ﻿using LitJson;
 namespace CG_Public
 {
+    /// <summary>
+    /// 配置
+    /// </summary>
     public static class CG_Config
     {
         //--------------------------------------------json配置
+
         /* 游戏中所有的文字 */
         public static JsonData label = CG_Games.LoadJson("Label");
+        /// <summary>
+        /// 游戏中所有的文字Json表
+        /// </summary>
         public static JsonData LABEL {
             get{ return label; }
         }
+
         /* 选择角色界面 */
         private static JsonData selectrole = CG_Games.LoadJson("SelectRole");
+        /// <summary>
+        /// 选择角色属性Json表
+        /// </summary>
         public static JsonData SELECTROLE
         {
             get { return selectrole; }
         }
+
         /* 游戏中所有的模型 */
         private static JsonData model = CG_Games.LoadJson("model");
+        /// <summary>
+        /// 游戏中所有的模型属性Json表
+        /// </summary>
         public static JsonData MODEL
         {
             get { return model; }
         }
+
         /* 游戏中所有的加载资源路径配置 */
         private static JsonData resourcePath = CG_Games.LoadJson("RESPath");
+        /// <summary>
+        /// 游戏中所有的加载资源路径配置Json表
+        /// </summary>
         public static JsonData RESPath
         {
             get { return resourcePath; }
+        }
+
+        private static JsonData package = CG_Games.LoadJson("Package");
+        /// <summary>
+        /// 等级升级送物品要求 JSon表
+        /// </summary>
+        public static JsonData Package
+        {
+            get { return package; }
         }
         //--------------------------------------------代码配置
         //用户名字

@@ -130,6 +130,13 @@ namespace CG_Manage
           account：账号
           password：密码
         */
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <param name="name">名字</param>
+        /// <param name="account">账号</param>
+        /// <param name="password">密码</param>
+        /// <returns></returns>
         public string GetZhuce(string name, string account, string password)
         {
             string filepath = Application.dataPath + @"/Resources/UserData.xml";
@@ -177,6 +184,12 @@ namespace CG_Manage
          account：账号
          password：密码
         */
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="account">账号</param>
+        /// <param name="password">密码</param>
+        /// <returns></returns>
         public string GetLogin(string account, string password)
         {
             string value = "";
@@ -205,6 +218,11 @@ namespace CG_Manage
         获取用户所有属性：
         account：用户账户
         */
+        /// <summary>
+        /// 获取用户所有属性
+        /// </summary>
+        /// <param name="account">用户账户</param>
+        /// <returns></returns>
         public Dictionary<string, string> Getinfos(string account)
         {
             Dictionary<string, string> Object = new Dictionary<string, string>();
@@ -221,6 +239,9 @@ namespace CG_Manage
         /*
         获取用户所有属性Key值：
         */
+        /// <summary>
+        ///   获取用户所有属性Key值：
+        /// </summary>
         public ArrayList GetinfoKeys()
         {
             ArrayList list = new ArrayList();
@@ -235,6 +256,9 @@ namespace CG_Manage
         /*
         V值是否相同
         */
+        /// <summary>
+        ///  V值是否相同
+        /// </summary>
         public bool isSame(string key, string Value)
         {
             bool on_off = FindSame(key,Value);
@@ -247,6 +271,9 @@ namespace CG_Manage
         key：K值属性
         Value：V值属性
         */
+        /// <summary>
+        ///  更改及更新用户属性V值：
+        /// </summary>
         public void SetInfo(string id, string key, string Value)
         {
             bool on_off = UpdateInfoXml(id, key, Value);

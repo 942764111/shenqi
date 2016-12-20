@@ -30,6 +30,9 @@ namespace CG_Public
             return obj;
 
         }
+        /// <summary>
+        /// 加载Json表
+        /// </summary>
         public static JsonData LoadJson(string jsonName)
         {
             bool on_off = Resources.Load("Json/" + jsonName).ToString() is string;
@@ -53,18 +56,33 @@ namespace CG_Public
 
     public static class CG_Windows
     {
+        /// <summary>
+        /// 占位符
+        /// </summary>
         public static string Format(string format, params object[] args)
         {
             return String.Format(format, args);
         }
+
+        /// <summary>
+        /// 随机（int）
+        /// </summary>
         public static int Random(int min, int max)
         {
             return UnityEngine.Random.Range(min, max);
         }
+
+        /// <summary>
+        /// 随机 （float）
+        /// </summary>
         public static float Random(float min, float max)
         {
             return UnityEngine.Random.Range(min, max);
         }
+        
+        /// <summary>
+        /// 最大值 （int[]）
+        /// </summary>
         public static int GetMax(int[] array)
         {
             if (array.Length != 0)
@@ -76,6 +94,10 @@ namespace CG_Public
                 return 1;
             }
         }
+
+        /// <summary>
+        /// 最大值 （List）
+        /// </summary>
         public static int GetMax(List<int> array)
         {
             if (array.Count != 0)

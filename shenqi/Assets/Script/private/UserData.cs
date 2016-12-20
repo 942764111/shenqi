@@ -6,6 +6,9 @@ using System.IO;
 using System.Text;
 using System;
 
+/// <summary>
+/// 用户数据
+/// </summary>
 public class UserData
 {
     protected enum SetUserKey
@@ -44,6 +47,9 @@ public class UserData
     string Sex = "1";// 1为男    2为女
     string Model = "1";// Model iD    参考Model.json  配置
 
+    /// <summary>
+    /// 创建Xml
+    /// </summary>
     protected void createXml(string name, string account, string password)
     {
         string filepath = Application.dataPath + @"/Resources/UserData.xml";
@@ -102,6 +108,10 @@ public class UserData
             Debug.Log("createXml OK!");
         }
     }
+
+    /// <summary>
+    /// 添加到Xml
+    /// </summary>
     protected string AddXml(string name, string account, string password)
     {
         string on_off = "1";
@@ -179,6 +189,9 @@ public class UserData
         return on_off;
     }
 
+    /// <summary>
+    /// 登录
+    /// </summary>
     protected bool login(string account, string password)
     {
         bool on_off = false;
@@ -206,6 +219,9 @@ public class UserData
         return on_off;
     }
 
+    /// <summary>
+    /// 更新Xml中数据
+    /// </summary>
     protected bool UpdateInfoXml(string id, string key, string Value)
     {
         bool on_off = false;
@@ -236,8 +252,13 @@ public class UserData
         }
         return on_off;
     }
+
+    /// <summary>
+    /// 查找玩家的数据
+    /// </summary>
     protected Dictionary<string, string> FindAllInfo(string account)
     {
+        Debug.Log("jiangdhlasghghadgkasdklsgkdkjsadgsagjdasjkgd");
         Dictionary<string, string> Object = new Dictionary<string, string>();
         string filepath = Application.dataPath + @"/Resources/UserData.xml";
         if (File.Exists(filepath))
@@ -264,6 +285,10 @@ public class UserData
         return Object;
     }
 
+    /// <summary>
+    /// 对比Xml中的数据
+    /// </summary>
+    /// <returns></returns>
     protected bool FindSame(string Key, string Value)
     {
         bool on_off = false;

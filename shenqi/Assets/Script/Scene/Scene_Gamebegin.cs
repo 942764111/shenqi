@@ -56,10 +56,11 @@ public class Scene_Gamebegin : Scene_Manage, interface_Scene
                 LoadLevel("Scene_Game");
                 break;
             case "2":
-
+              
                 //   LoadLevel("Scene_Selectrole");
                 Transform me = transform.Find("Begin");
                 me.gameObject.SetActive(false);
+                
                 new UI_SelectRole();
                 break;
             default:

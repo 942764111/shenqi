@@ -16,7 +16,9 @@ namespace CG_Manage
             }
             return _instance;
         }
-
+        /// <summary>
+        /// 转场
+        /// </summary>
         public void LoadLevel(string SceneName)
         {
             //每次转换场景清空UI字典里
@@ -29,7 +31,11 @@ namespace CG_Manage
             Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["QHCJ"], SceneName));
         }
 
-        //添加UI界面到字典   
+        //添加UI界面到字典 
+
+        /// <summary>
+        /// 添加UI界面到字典 
+        /// </summary>
         public void AddUI(string ClassName, GameObject obj)
         {
 

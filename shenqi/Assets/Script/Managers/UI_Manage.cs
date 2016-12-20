@@ -15,14 +15,20 @@ namespace CG_Manage
             }
             return _instance;
         }
-        //删除UI
         MB_Manage MB = MB_Manage.CreateInstance();
+
+        /// <summary>
+        /// 删除UI
+        /// </summary>
         public void removeUI(GameObject Obj, string ClassName)
         {
             MB.MB_Destroy(Obj);
             Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["REMOVE"], ClassName));
         }
-        //克隆ui;
+
+        /// <summary>
+        /// 实例化ui;
+        /// </summary>
         public GameObject CloneUI(string ClassName)
         {
             GameObject res = (GameObject)Resources.Load((string)CG_Config.RESPath["UI"]+ ClassName);
@@ -33,14 +39,20 @@ namespace CG_Manage
             resetZOrder(obj);
             return obj;
         }
-        //重置层级
+   
+        /// <summary>
+        /// 重置层级
+        /// </summary>
         public void resetZOrder(GameObject obj)
         {
             UIPanel Panel;
             Panel = obj.GetComponent<UIPanel>();
             Panel.depth = GetMaxZOrder() + 1;
         }
-        //获取当前场景最大层级
+
+        /// <summary>
+        /// 获取当前场景最大层级
+        /// </summary>
         public int GetMaxZOrder() {
             List<int> list = new List<int>();
             UIPanel Panel;
@@ -51,8 +63,11 @@ namespace CG_Manage
               
             }
             return CG_Windows.GetMax(list);
-        }
-        //添加UI界面到字典     
+        }  
+
+        /// <summary>
+        /// 添加UI界面到字典  
+        /// </summary> 
         public void AddUI(string ClassName, GameObject obj)
         {
 
