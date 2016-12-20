@@ -1,23 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using CG_Manage;
 using CG_Public;
+using LitJson;
+
 public class Scene_Gamebegin : Scene_Manage, interface_Scene
 {
     string ClassID = "Scene_Gamebegin";
     User_Manage userdata;
-    void Start() {
+    void Start()
+    {
         userdata = User_Manage.CreateInstance();
         initUI();
     }
     //----------------初始化开始界面
     public void initUI()
     {
-
         userdata = User_Manage.CreateInstance();
-
-        AddUI(ClassID, this.gameObject);
-
         initBtns();
     }
 
@@ -26,7 +26,7 @@ public class Scene_Gamebegin : Scene_Manage, interface_Scene
         string[] arr = { "bgein", "zc" };
         foreach (var obj in arr)
         {
-            Transform button = this.transform.Find("Begin/"+obj);
+            Transform button = this.transform.Find("Begin/" + obj);
             UIEventListener.Get(button.gameObject).onClick = Callback;
         }
     }
@@ -52,15 +52,11 @@ public class Scene_Gamebegin : Scene_Manage, interface_Scene
         switch (on_off)
         {
             case "1":
-              //  GameModel_role role = new GameModel_role();
                 LoadLevel("Scene_Game");
                 break;
             case "2":
-              
-                //   LoadLevel("Scene_Selectrole");
                 Transform me = transform.Find("Begin");
                 me.gameObject.SetActive(false);
-                
                 new UI_SelectRole();
                 break;
             default:

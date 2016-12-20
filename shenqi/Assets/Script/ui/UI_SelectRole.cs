@@ -13,8 +13,16 @@ public class UI_SelectRole : UI_Manage,interface_UI
     JsonData json;
     string job = "";
     string sex = "";
-    string Model = "1";
+    string Model = "0";
     //// Use this for initialization
+
+    public Transform GetMe
+    {
+        get
+        {
+            return me.transform;
+        }
+    }
 
     public UI_SelectRole()
     {
@@ -26,18 +34,15 @@ public class UI_SelectRole : UI_Manage,interface_UI
     }
     public void initUI()
     {
-       userdata = User_Manage.CreateInstance();
-       me = CloneUI(ClassID);
+        me = base.initUI(ClassID);
 
-        GameModel_role role =  new GameModel_role();
-      //  role.GetThis().localRotation = new Vector2(0f,-180f);
+        initModel();
+
         initAddAction();
 
         initBtns();
 
         StartState();
-
-        AddUI(ClassID, me);
     }
     public void initBtns()
     {
@@ -64,7 +69,7 @@ public class UI_SelectRole : UI_Manage,interface_UI
     {
         JsonData jobs = json["job"];
         UIButton btn = me.transform.Find("btns/job/" + (string)jobs[0]["name"]).GetComponent<UIButton>();
-        Transform obj = me.transform.Find("ui/hero/" + (string)jobs[0]["name"]);
+        Transform obj = me.transform.parent.transform.Find((string)jobs[0]["name"]);
         TheRunState(btn, obj, jobs[0]["jobPath"], jobs[0]["sexPath"]);
         otherOnClickState("sj");
         job = (string)jobs[0]["job"];
@@ -82,7 +87,7 @@ public class UI_SelectRole : UI_Manage,interface_UI
         for (int i = 0; i < jobs.Count; i++)
         {
             btn = me.transform.Find("btns/job/" + (string)jobs[i]["name"]).GetComponent<UIButton>();
-            obj = me.transform.Find("ui/hero/" + (string)jobs[i]["name"]);
+            obj = me.transform.parent.transform.Find((string)jobs[i]["name"]);
             if ((string)jobs[i]["name"] == objname)
             {
                 TheRunState(btn, obj, jobs[i]["jobPath"], jobs[i]["sexPath"]);
@@ -151,13 +156,29 @@ public class UI_SelectRole : UI_Manage,interface_UI
                     Debug.LogError(CG_Windows.Format((string)CG_Config.LABEL["JZJSONCG"]));
                 }
                 else {
-                    userdata.SetInfo(CG_variable.GetUserInfo[userdata.GetKey_ID], userdata.GetKey_Name, name.text);
-                    userdata.SetInfo(CG_variable.GetUserInfo[userdata.GetKey_ID], userdata.GetKey_Role, job);
-                    userdata.SetInfo(CG_variable.GetUserInfo[userdata.GetKey_ID], userdata.GetKey_Sex, sex);
-                    userdata.SetInfo(CG_variable.GetUserInfo[userdata.GetKey_ID], userdata.GetKey_Model, Model);
-                //    GameModel_role role = new GameModel_role();
+                    userdata.SetInfo(User_Manage.GetUserInfo[userdata.GetKey_ID], userdata.GetKey_Name, name.text);
+                    userdata.SetInfo(User_Manage.GetUserInfo[userdata.GetKey_ID], userdata.GetKey_Role, job);
+                    userdata.SetInfo(User_Manage.GetUserInfo[userdata.GetKey_ID], userdata.GetKey_Sex, sex);
+                    userdata.SetInfo(User_Manage.GetUserInfo[userdata.GetKey_ID], userdata.GetKey_Model, Model);
+                    Scene_Manage.CreateInstance().LoadLevel("Scene_Game");
                 }
                 break;
+        }
+    }
+    void initModel() {
+        JsonData jobs = json["job"];
+        for (int i = 0;i< jobs.Count; i++) {
+            var role = new GameModel_role((string)jobs[i]["model"]);
+            role.GetMe.gameObject.name = (string)jobs[i]["name"];
+            role.GetMe.SetParent(me.transform.parent.transform);
+            role.GetMe.localScale = new Vector3(200, 200, 200);
+            role.GetMe.localPosition = new Vector3(0, -270, -200);
+            role.GetMe.localRotation = Quaternion.Euler(new Vector3(0, 180, 0));
+            role.GetMe.gameObject.AddComponent<Animation>();
+
+            if (i != 0) {
+                role.GetMe.gameObject.SetActive(false);
+            }
         }
     }
 }

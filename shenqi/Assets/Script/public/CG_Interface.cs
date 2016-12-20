@@ -1,5 +1,7 @@
 ﻿using LitJson;
 using UnityEngine;
+using System.Collections.Generic;
+using CG_Manage;
 namespace CG_Public
 {
     public interface interface_User
@@ -22,14 +24,19 @@ namespace CG_Public
         void LoadData();
         void CreateModel(string ModelPath, string ModelName);
         void AddInfo(JsonData info);
+        Transform GetMe { get;}
     }
     public interface interface_UI
     {
          void initUI();
          void initBtns();
-         void Callback(GameObject Obj);
+         void Callback(GameObject Obj); 
+         Transform GetMe { get; }
     }
     public interface interface_Scene
     {
+        void initUI();
+        void initBtns();
+        void Callback(GameObject Obj);
     }
 }

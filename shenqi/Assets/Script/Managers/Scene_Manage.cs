@@ -17,35 +17,14 @@ namespace CG_Manage
             return _instance;
         }
         /// <summary>
-        /// 转场
+        /// 切换场景
         /// </summary>
+        /// <param name="SceneName">场景名字</param>
         public void LoadLevel(string SceneName)
         {
-            //每次转换场景清空UI字典里
-            foreach (KeyValuePair<string, GameObject> index in CG_variable.GetUIID)
-            {
-                CG_variable.GetUIID.Remove(index.Key);
-            }
+            UI_Manage.CreateInstance().emptyUI();
             Application.LoadLevel(SceneName);
-
             Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["QHCJ"], SceneName));
-        }
-
-        //添加UI界面到字典 
-
-        /// <summary>
-        /// 添加UI界面到字典 
-        /// </summary>
-        public void AddUI(string ClassName, GameObject obj)
-        {
-
-            foreach (KeyValuePair<string, GameObject> index in CG_variable.GetUIID)
-            {
-                if (index.Key != ClassName)
-                {
-                    CG_variable.GetUIID.Add(ClassName, obj);
-                }
-            }
         }
     }
 }

@@ -18,8 +18,24 @@ namespace CG_Manage
             return _instance;
         }
 
+
+        private static Dictionary<string, string> getuserinfo = new Dictionary<string, string>();
+        /// <summary>
+        /// 通过   User_Manage.GetUserInfo[""] 获取用户基本属性 
+        /// </summary>
+        public static Dictionary<string, string> GetUserInfo
+        {
+            get
+            {
+                return getuserinfo;
+            }
+        }
+
         //实例化 接口方法
         private string GetKey_hp = SetUserInfoKey.HP.ToString();
+        /// <summary>
+        /// 获取用户key  血量
+        /// </summary>
         public string GetKey_HP
         {
             get
@@ -29,6 +45,9 @@ namespace CG_Manage
         }
 
         private string GetKey_mp = SetUserInfoKey.MP.ToString();
+        /// <summary>
+        /// 获取用户key  蓝量
+        /// </summary>
         public string GetKey_MP
         {
             get
@@ -37,6 +56,9 @@ namespace CG_Manage
             }
         }
         private string GetKey_attack = SetUserInfoKey.Attack.ToString();
+        /// <summary>
+        /// 获取用户key  攻击力
+        /// </summary>
         public string GetKey_Attack
         {
             get
@@ -45,6 +67,9 @@ namespace CG_Manage
             }
         }
         private string GetKey_magic = SetUserInfoKey.Magic.ToString();//魔法
+        /// <summary>
+        /// 获取用户key  魔法
+        /// </summary>
         public string GetKey_Magic
         {
             get
@@ -54,6 +79,9 @@ namespace CG_Manage
         }
 
         private string GetKey_role = SetUserInfoKey.Role.ToString();//角色  0 为没有角色
+        /// <summary>
+        /// 获取用户key  角色  0 为没有角色
+        /// </summary>
         public string GetKey_Role
         {
             get
@@ -62,6 +90,9 @@ namespace CG_Manage
             }
         }
         private string GetKey_sex = SetUserInfoKey.Sex.ToString();// 1为男    2为女
+        /// <summary>
+        /// 获取用户key  性别
+        /// </summary>
         public string GetKey_Sex
         {
             get
@@ -70,6 +101,9 @@ namespace CG_Manage
             }
         }
         private string GetKey_armor = SetUserInfoKey.Armor.ToString();//护甲
+        /// <summary>
+        /// 获取用户key  护甲
+        /// </summary>
         public string GetKey_Armor
         {
             get
@@ -78,6 +112,9 @@ namespace CG_Manage
             }
         }
         private string GetKey_name = SetUserInfoKey.Name.ToString();
+        /// <summary>
+        /// 获取用户key  名字
+        /// </summary>
         public string GetKey_Name
         {
             get
@@ -86,6 +123,9 @@ namespace CG_Manage
             }
         }
         private string GetKey_mac = SetUserInfoKey.MAC.ToString();//魔法防御
+        /// <summary>
+        /// 获取用户key  魔法防御
+        /// </summary>
         public string GetKey_MAC
         {
             get
@@ -94,6 +134,9 @@ namespace CG_Manage
             }
         }
         private string GetKey_model = SetUserInfoKey.Model.ToString();//角色模型
+        /// <summary>
+        /// 获取用户key  角色模型
+        /// </summary>
         public string GetKey_Model
         {
             get
@@ -102,6 +145,9 @@ namespace CG_Manage
             }
         }
         private string GetKey_id = SetUserInfoKey.Model.ToString();//角色ID
+        /// <summary>
+        /// 获取用户key  角色ID
+        /// </summary>
         public string GetKey_ID
         {
             get
@@ -118,6 +164,9 @@ namespace CG_Manage
             SetUserInfoKey.Armor.ToString(),
             SetUserInfoKey.MAC.ToString()
         };
+        /// <summary>
+        /// 获取所有keys   
+        /// </summary>
         public string[] GetModelKeys {
             get
             {
@@ -185,7 +234,7 @@ namespace CG_Manage
          password：密码
         */
         /// <summary>
-        /// 登录
+        /// 获取登录
         /// </summary>
         /// <param name="account">账号</param>
         /// <param name="password">密码</param>
@@ -196,8 +245,8 @@ namespace CG_Manage
             bool on_off = login(account, password);
             if (on_off)
             {
-                CG_variable.GetUserInfo = Getinfos(account);
-                if (CG_variable.GetUserInfo["Role"] !="0")
+                getuserinfo = Getinfos(account);
+                if (getuserinfo["Role"] !="0")
                 {
                     Debug.Log(CG_Config.LABEL["DLCG"]);
                     value = "1";
@@ -237,23 +286,6 @@ namespace CG_Manage
         }
 
         /*
-        获取用户所有属性Key值：
-        */
-        /// <summary>
-        ///   获取用户所有属性Key值：
-        /// </summary>
-        public ArrayList GetinfoKeys()
-        {
-            ArrayList list = new ArrayList();
-
-            foreach (KeyValuePair<string, string> index in CG_variable.GetUserInfo)
-            {
-                list.Add(index.Key);
-            }
-            return list;
-        }
-
-        /*
         V值是否相同
         */
         /// <summary>
@@ -278,8 +310,8 @@ namespace CG_Manage
         {
             bool on_off = UpdateInfoXml(id, key, Value);
             if (on_off) {
-                CG_variable.GetUserInfo[key] = Value;
-                Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["GXCG"], key, CG_variable.GetUserInfo[key]));
+                getuserinfo[key] = Value;
+                Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["GXCG"], key, getuserinfo[key]));
                 return;
             }
             Debug.LogError(CG_Windows.Format((string)CG_Config.LABEL["GXSB"], id, key));

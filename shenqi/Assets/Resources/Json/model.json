@@ -3,7 +3,7 @@
 		"id": "1",
 		"name": "风灵女",
 		"path": "Role/Model/Archer/Female/",
-		"model": "Archer_Female_01",
+		"model": "Archer_Female_02",
 		"info": {
 			"HP": "400",
 			"MP": "250",
@@ -40,5 +40,132 @@
 			"Armor": "50",
 			"MAC": "50"
 		}
+	},
+		"4": {
+		"id": "4",
+		"name": "鸡蛋",
+		"path": "Role/monster/01/",
+		"model": "TaoWu",
+			"info": {
+			"HP": "500",
+			"MP": "200",
+			"Attack": "50",
+			"Magic": "50",
+			"Armor": "50",
+			"MAC": "50"
+		}
+	},
+		"5": {
+		"id": "5",
+		"name": "霍伟杰",
+		"path": "Role/monster/02/",
+		"model": "BaiXiongJing",
+			"info": {
+			"HP": "500",
+			"MP": "200",
+			"Attack": "50",
+			"Magic": "50",
+			"Armor": "50",
+			"MAC": "50"
+		}
+	},
+		"6": {
+		"id": "6",
+		"name": "李孟杰",
+		"path": "Role/monster/03/",
+		"model": "TieJiaFu",
+			"info": {
+			"HP": "500",
+			"MP": "200",
+			"Attack": "50",
+			"Magic": "50",
+			"Armor": "50",
+			"MAC": "50"
+		}
+	},
+		"7": {
+		"id": "7",
+		"name": "啊",
+		"path": "Role/mount/01/",
+		"model": "Chibang_01",
+			"info": {
+			"HP": "500",
+			"MP": "200",
+			"Attack": "50",
+			"Magic": "50",
+			"Armor": "50",
+			"MAC": "50"
+		}
+	},
+		"8": {
+		"id": "8",
+		"name": "窝",
+		"path": "Role/mount/02/",
+		"model": "Warrior_Male_07",
+			"info": {
+			"HP": "500",
+			"MP": "200",
+			"Attack": "50",
+			"Magic": "50",
+			"Armor": "50",
+			"MAC": "50"
+		}
+	},
+		"9": {
+		"id": "9",
+		"name": "饿",
+		"path": "Role/mount/03/",
+		"model": "LuZuoQi_01",
+			"info": {
+			"HP": "500",
+			"MP": "200",
+			"Attack": "50",
+			"Magic": "50",
+			"Armor": "50",
+			"MAC": "50"
+		}
+	},
+		"10": {
+		"id": "10",
+		"name": "异",
+		"path": "Role/mount/04/",
+		"model": "QiLingZuoQi_01",
+			"info": {
+			"HP": "500",
+			"MP": "200",
+			"Attack": "50",
+			"Magic": "50",
+			"Armor": "50",
+			"MAC": "50"
+		}
+	},
+		"11": {
+		"id": "11",
+		"name": "无",
+		"path": "Role/mount/05/",
+		"model": "XiongMaoZuoQi_01",
+			"info": {
+			"HP": "500",
+			"MP": "200",
+			"Attack": "50",
+			"Magic": "50",
+			"Armor": "50",
+			"MAC": "50"
+		}
+	},
+	"12": {
+		"id": "12",
+		"name": "于",
+		"path": "Role/mount/06/",
+		"model": "ZhanQi_01",
+			"info": {
+			"HP": "500",
+			"MP": "200",
+			"Attack": "50",
+			"Magic": "50",
+			"Armor": "50",
+			"MAC": "50"
+		}
 	}
+	
 }

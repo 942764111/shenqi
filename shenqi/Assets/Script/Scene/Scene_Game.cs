@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using CG_Manage;
 using CG_Public;
-public class Scene_Game : Scene_Manage,interface_Scene,interface_UI {
+public class Scene_Game : Scene_Manage,interface_Scene {
     string ClassID = "Scene_Game";
     User_Manage userdata;
     void Start()
@@ -16,8 +16,6 @@ public class Scene_Game : Scene_Manage,interface_Scene,interface_UI {
     //----------------初始化开始界面
     public void initUI()
     {
-        AddUI(ClassID, this.gameObject);
-
         new UI_libao();
         initBtns();
     }

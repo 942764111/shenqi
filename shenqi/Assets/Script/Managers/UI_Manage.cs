@@ -15,34 +15,86 @@ namespace CG_Manage
             }
             return _instance;
         }
-        MB_Manage MB = MB_Manage.CreateInstance();
-
+        private static Dictionary<string, GameObject> getuiid = new Dictionary<string, GameObject>();
         /// <summary>
-        /// 删除UI
+        /// 获取UI字典
         /// </summary>
+        public static Dictionary<string, GameObject> GetUIID
+        {
+            get
+            {
+                return getuiid;
+            }
+        }
+
+        MB_Manage MB = MB_Manage.CreateInstance();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Obj">UI对象</param>
+        /// <param name="ClassName">UI类名</param>
         public void removeUI(GameObject Obj, string ClassName)
         {
             MB.MB_Destroy(Obj);
             Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["REMOVE"], ClassName));
         }
-
         /// <summary>
-        /// 实例化ui;
+        /// 初始化UI预制体
         /// </summary>
-        public GameObject CloneUI(string ClassName)
+        /// <param name="ClassName">UI类名</param>
+        /// <returns></returns>
+        public GameObject initUI(string ClassName)
         {
-            GameObject res = (GameObject)Resources.Load((string)CG_Config.RESPath["UI"]+ ClassName);
+            GameObject obj = CloneUI((string)CG_Config.RESPath["UI"] + ClassName);
             Vector2 size = new Vector2(1f, 1f);
-            GameObject obj = MB.MB_Instantiate(res);
             obj.transform.parent = GameObject.Find("UI Root").transform;
             obj.transform.localScale = size;
+            AddUI(ClassName, obj);
             resetZOrder(obj);
             return obj;
         }
-   
+
         /// <summary>
-        /// 重置层级
+        /// 克隆对象
         /// </summary>
+        /// <param name="path">路径</param>
+        /// <returns></returns>
+        public GameObject CloneUI(string path)
+        {
+            GameObject res = (GameObject)Resources.Load(path);
+            GameObject obj = MB.MB_Instantiate(res);
+            return obj;
+        }
+
+        /// <summary>
+        /// 添加UI到  GetUIID字典中
+        /// </summary>
+        /// <param name="ClassName">UI类名</param>
+        /// <param name="obj">UI对象</param>
+
+        public void AddUI(string ClassName, GameObject obj)
+        {
+            Dictionary<string, GameObject> uiid = new Dictionary<string, GameObject>(getuiid);
+            if (uiid.Count <= 0)
+            {
+                getuiid.Add(ClassName, obj);
+            }
+            else
+            {
+                foreach (KeyValuePair<string, GameObject> index in uiid)
+                {
+                    if (index.Key != ClassName)
+                    {
+                        getuiid.Add(ClassName, obj);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 重置UI层级 
+        /// </summary>
+        /// <param name="obj"></param>
         public void resetZOrder(GameObject obj)
         {
             UIPanel Panel;
@@ -51,32 +103,31 @@ namespace CG_Manage
         }
 
         /// <summary>
-        /// 获取当前场景最大层级
+        /// 获取UI最大层级
         /// </summary>
-        public int GetMaxZOrder() {
+        /// <returns></returns>
+        public int GetMaxZOrder()
+        {
             List<int> list = new List<int>();
             UIPanel Panel;
-            foreach (KeyValuePair<string, GameObject> index in CG_variable.GetUIID)
+            foreach (KeyValuePair<string, GameObject> index in getuiid)
             {
                 Panel = index.Value.GetComponent<UIPanel>();
                 list.Add(Panel.depth);
-              
+
             }
             return CG_Windows.GetMax(list);
-        }  
+        }
 
         /// <summary>
-        /// 添加UI界面到字典  
-        /// </summary> 
-        public void AddUI(string ClassName, GameObject obj)
+        /// 清空UI字典
+        /// </summary>
+        public void emptyUI()
         {
-
-            foreach (KeyValuePair<string, GameObject> index in CG_variable.GetUIID)
+            Dictionary<string, GameObject> uiid = new Dictionary<string, GameObject>(getuiid);
+            foreach (KeyValuePair<string, GameObject> index in uiid)
             {
-                if (index.Key != ClassName)
-                {
-                    CG_variable.GetUIID.Add(ClassName, obj);
-                }
+                getuiid.Remove(index.Key);
             }
         }
     }
