@@ -30,5 +30,6 @@
 	"XML3":"deleteXml OK!",
 	"JZMXSJ":"【加载模型数据】：【{0}】",
 	"ZC":"【name】：{0}【account】：{1}【password】：{2}",
-	"REMOVE":"【remove】：{0}"
+	"REMOVE":"【remove】：{0}",
+	"DLSB":"【account】：{0}【password】：{1}"
 } 

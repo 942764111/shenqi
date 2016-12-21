@@ -1,26 +1,26 @@
 <transforms>
   <rotation id="1" account="123" password="123">
-    <Name>╉ж巫</Name>
-    <HP>0</HP>
-    <MP>0</MP>
-    <Attack>0</Attack>
-    <Magic>0</Magic>
-    <Role>1</Role>
-    <Sex>0</Sex>
-    <Armor>0</Armor>
-    <MAC>0</MAC>
-    <Model>1</Model>
-  </rotation>
-  <rotation id="2" account="789" password="789">
-    <Name>789</Name>
-    <HP>0</HP>
-    <MP>0</MP>
-    <Attack>0</Attack>
-    <Magic>0</Magic>
-    <Role>0</Role>
+    <Name>令□雍</Name>
+    <HP>500</HP>
+    <MP>200</MP>
+    <Attack>50</Attack>
+    <Magic>50</Magic>
+    <Role>2</Role>
     <Sex>1</Sex>
-    <Armor>0</Armor>
-    <MAC>0</MAC>
-    <Model>1</Model>
+    <Armor>50</Armor>
+    <MAC>50</MAC>
+    <Model>2</Model>
+  </rotation>
+  <rotation id="2" account="qiaobin" password="123">
+    <Name>く赖Ｇ</Name>
+    <HP>500</HP>
+    <MP>200</MP>
+    <Attack>50</Attack>
+    <Magic>50</Magic>
+    <Role>3</Role>
+    <Sex>1</Sex>
+    <Armor>50</Armor>
+    <MAC>50</MAC>
+    <Model>3</Model>
   </rotation>
 </transforms>

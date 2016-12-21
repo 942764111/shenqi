@@ -54,12 +54,12 @@ public class UI_Login : UI_Manage, interface_UI
     void BtnZC_zc(GameObject A)
     {
         string state = "";
-        string[] str = { "namobj/name", "zh", "mima" };
+        string[] str = { "namobj/name", "namobj/zh", "namobj/mima" };
         List<string> text = new List<string>();
         UILabel label;
         for (int i = 0; i < str.Length; i++)
         {
-            label = GameObject.Find("shurukuang/" + str[i]).GetComponent<UILabel>();
+            label = me.transform.Find("shurukuang/" + str[i]).GetComponent<UILabel>();
             text.Add(label.text);
         }
         state = userdata.GetZhuce(text[0], text[1], text[2]);

@@ -36,6 +36,7 @@ namespace CG_Manage
         public void removeUI(GameObject Obj, string ClassName)
         {
             MB.MB_Destroy(Obj);
+            getuiid.Remove(ClassName);
             Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["REMOVE"], ClassName));
         }
         /// <summary>
@@ -74,21 +75,7 @@ namespace CG_Manage
 
         public void AddUI(string ClassName, GameObject obj)
         {
-            Dictionary<string, GameObject> uiid = new Dictionary<string, GameObject>(getuiid);
-            if (uiid.Count <= 0)
-            {
-                getuiid.Add(ClassName, obj);
-            }
-            else
-            {
-                foreach (KeyValuePair<string, GameObject> index in uiid)
-                {
-                    if (index.Key != ClassName)
-                    {
-                        getuiid.Add(ClassName, obj);
-                    }
-                }
-            }
+            getuiid.Add(ClassName, obj);
         }
 
         /// <summary>

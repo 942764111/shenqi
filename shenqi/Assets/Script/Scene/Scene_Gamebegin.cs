@@ -26,7 +26,7 @@ public class Scene_Gamebegin : Scene_Manage, interface_Scene
         string[] arr = { "bgein", "zc" };
         foreach (var obj in arr)
         {
-            Transform button = this.transform.Find("Begin/" + obj);
+            Transform button = this.transform.Find("Camera/Begin/" + obj);
             UIEventListener.Get(button.gameObject).onClick = Callback;
         }
     }
@@ -55,7 +55,7 @@ public class Scene_Gamebegin : Scene_Manage, interface_Scene
                 LoadLevel("Scene_Game");
                 break;
             case "2":
-                Transform me = transform.Find("Begin");
+                Transform me = transform.Find("Camera/Begin");
                 me.gameObject.SetActive(false);
                 new UI_SelectRole();
                 break;
@@ -66,7 +66,7 @@ public class Scene_Gamebegin : Scene_Manage, interface_Scene
     //注册按钮  初始化注册界面
     void BtnStart_zc(GameObject obj)
     {
-        UI_Manage login = new UI_Login();
+        new UI_Login();
     }
 
 }

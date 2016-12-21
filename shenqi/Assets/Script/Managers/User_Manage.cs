@@ -144,7 +144,7 @@ namespace CG_Manage
                 return GetKey_model;
             }
         }
-        private string GetKey_id = SetUserInfoKey.Model.ToString();//角色ID
+        private string GetKey_id = SetUserKey.id.ToString();//角色ID
         /// <summary>
         /// 获取用户key  角色ID
         /// </summary>
@@ -257,6 +257,7 @@ namespace CG_Manage
                 }
             }
             else {
+                Debug.LogError(CG_Windows.Format((string)CG_Config.LABEL["DLSB"], account, password));
                 Debug.LogError(CG_Config.LABEL["ZHMMYW"]);
                 value = "0";
             }
