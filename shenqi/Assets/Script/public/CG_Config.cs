@@ -55,6 +55,16 @@ namespace CG_Public
         {
             get { return package; }
         }
+
+        private static JsonData LoadingRes = CG_Games.LoadJson("LoadingRes");
+        /// <summary>
+        /// 游戏资源管理 JSon表
+        /// </summary>
+        public static JsonData LOADINGRES
+        {
+            get { return LoadingRes; }
+        }
+
         //--------------------------------------------代码配置
         //用户名字
         private static char[] _flrsiname = { '赵', '钱', '孙', '李', '周', '吴', '郑', '王', '陈', '楮', '卫', '蒋', '沈', '秦', '尤',

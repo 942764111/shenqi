@@ -16,14 +16,16 @@ namespace CG_Manage
             }
             return _instance;
         }
+        static public string SceneName = "";
         /// <summary>
         /// 切换场景
         /// </summary>
         /// <param name="SceneName">场景名字</param>
-        public void LoadLevel(string SceneName)
+        public void LoadLevel(string scenename)
         {
             UI_Manage.CreateInstance().emptyUI();
-            Application.LoadLevel(SceneName);
+            SceneName = scenename;
+            Application.LoadLevel("Scene_Loading");
             Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["QHCJ"], SceneName));
         }
     }
