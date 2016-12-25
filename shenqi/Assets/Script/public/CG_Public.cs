@@ -96,7 +96,7 @@ namespace CG_Public
         }
 
         /// <summary>
-        /// 最大值 （List）
+        /// 最大值 List<int>
         /// </summary>
         public static int GetMax(List<int> array)
         {

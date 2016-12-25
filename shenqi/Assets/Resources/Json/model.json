@@ -101,7 +101,7 @@
 		"id": "8",
 		"name": "窝",
 		"path": "Role/mount/02/",
-		"model": "Warrior_Male_07",
+		"model": "LangQi_01",
 			"info": {
 			"HP": "500",
 			"MP": "200",

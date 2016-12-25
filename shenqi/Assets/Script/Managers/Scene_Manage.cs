@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using CG_Public;
 namespace CG_Manage
 {
@@ -25,8 +26,8 @@ namespace CG_Manage
         {
             UI_Manage.CreateInstance().emptyUI();
             SceneName = scenename;
-            Application.LoadLevel("Scene_Loading");
-            Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["QHCJ"], SceneName));
+            EditorSceneManager.LoadScene("Scene_Loading");
+            Debug.Log(CG_Windows.Format((string)CG_Config.LABEL["QHCJ"], "Scene_Loading"));
         }
     }
 }

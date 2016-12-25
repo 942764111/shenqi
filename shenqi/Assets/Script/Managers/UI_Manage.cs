@@ -62,7 +62,7 @@ namespace CG_Manage
         /// <returns></returns>
         public GameObject CloneUI(string path)
         {
-            GameObject res = (GameObject)Resources.Load(path);
+            GameObject res =  CG_Games.LoadObject(path);
             GameObject obj = MB.MB_Instantiate(res);
             return obj;
         }
