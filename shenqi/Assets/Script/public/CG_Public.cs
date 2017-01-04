@@ -19,6 +19,14 @@ namespace CG_Public
         }
         public static GameObject LoadObject(string Path)
         {
+            //Animator a;
+            //AnimatorStateInfo cur = a.GetCurrentAnimatorStateInfo(0);
+            //bool b = cur.IsName("攻击")
+            //if(b)
+            //{
+
+            //}
+
             GameObject obj = null;
             bool on_off = Resources.Load<GameObject>(Path) is GameObject;
             if (on_off)
@@ -35,6 +43,8 @@ namespace CG_Public
         /// </summary>
         public static JsonData LoadJson(string jsonName)
         {
+            //异步加载场景
+//            UnityEngine.SceneManagement.SceneManager.LoadSceneAsync();
             bool on_off = Resources.Load("Json/" + jsonName).ToString() is string;
             string file = null;
             JsonData json = null;
