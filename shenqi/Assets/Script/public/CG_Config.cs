@@ -47,13 +47,13 @@ namespace CG_Public
             get { return resourcePath; }
         }
 
-        private static JsonData package = CG_Games.LoadJson("Package");
+        private static JsonData libao = CG_Games.LoadJson("Libao");
         /// <summary>
         /// 等级升级送物品要求 JSon表
         /// </summary>
-        public static JsonData Package
+        public static JsonData Libao
         {
-            get { return package; }
+            get { return libao; }
         }
 
         private static JsonData LoadingRes = CG_Games.LoadJson("LoadingRes");
